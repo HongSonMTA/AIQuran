@@ -13,8 +13,7 @@ public class VerticalTextView extends TextView
 {
     final boolean topDown;
 
-    public VerticalTextView( Context context,
-                             AttributeSet attrs )
+    public VerticalTextView( Context context, AttributeSet attrs )
     {
         super(context, attrs );
         final int gravity = getGravity();
@@ -34,8 +33,7 @@ public class VerticalTextView extends TextView
     }
 
     @Override
-    protected void onMeasure( int widthMeasureSpec,
-                              int heightMeasureSpec )
+    protected void onMeasure( int widthMeasureSpec, int heightMeasureSpec )
     {
         super.onMeasure( heightMeasureSpec,
                 widthMeasureSpec );
