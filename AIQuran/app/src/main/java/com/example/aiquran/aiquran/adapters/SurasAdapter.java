@@ -38,7 +38,6 @@ public class SurasAdapter  extends RecyclerView.Adapter<SurasAdapter.ViewHoder> 
     @Override
     public void onBindViewHolder(@NonNull ViewHoder viewHoder, final int i) {
         viewHoder.binding.setItem(arraySuras.get(i));
-        viewHoder.binData(arraySuras.get(i));
         viewHoder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,13 +58,6 @@ public class SurasAdapter  extends RecyclerView.Adapter<SurasAdapter.ViewHoder> 
         public ViewHoder(ItemSuraBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
-        }
-        public void binData(Suras suras){
-            if(suras.isCheck()){
-                itemView.setBackgroundColor(Color.LTGRAY);
-            }else {
-                itemView.setBackgroundColor(Color.WHITE);
-            }
         }
     }
     public interface ItemViewActionCallBack {

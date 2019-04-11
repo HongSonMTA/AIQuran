@@ -36,7 +36,6 @@ public class FragmentSuras extends Fragment implements SurasAdapter.ItemViewActi
     private ArrayList<Suras> arraySuras;
     private FragmentSurasBinding binding;
     private SurasAdapter adapter;
-    private int checkClick = -1;
     private String[] listMenu = new String[]{"Scrolling", "Paging", "AI-Quran TV"};
 
     public static FragmentSuras getInstance(){
@@ -78,16 +77,6 @@ public class FragmentSuras extends Fragment implements SurasAdapter.ItemViewActi
 
     @Override
     public void onClick(int position) {
-        if(position == checkClick){
-            return;
-        }
-        if(checkClick != -1){
-            arraySuras.get(checkClick).setCheck(false);
-            adapter.notifyItemChanged(checkClick);
-        }
-        arraySuras.get(position).setCheck(true);
-        adapter.notifyItemChanged(position);
-        checkClick = position;
         TextView txt = new TextView(getContext());
         txt.setText("Choose the suitable method to explore the Holy Quran");
         txt.setPadding(20,20,20,20);

@@ -6,7 +6,6 @@ public class Suras implements Serializable {
     private String id;
     private String originalWords;
     private  String translationWords;
-    private boolean check;
 
     public Suras(String id, String originalWords, String translationWords) {
         this.id = id;
@@ -36,13 +35,5 @@ public class Suras implements Serializable {
 
     public void setTranslationWords(String translationWords) {
         this.translationWords = translationWords;
-    }
-
-    public boolean isCheck() {
-        return check;
-    }
-
-    public void setCheck(boolean check) {
-        this.check = check;
     }
 }
