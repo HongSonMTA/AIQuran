@@ -1,15 +1,16 @@
 package com.example.aiquran.aiquran.fragments;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+import android.widget.CheckBox;
 
 import com.example.aiquran.aiquran.R;
 import com.example.aiquran.aiquran.adapters.SurasAdapter;
@@ -24,6 +25,8 @@ public class FragmentSuras extends Fragment implements SurasAdapter.ItemViewActi
     private FragmentSurasBinding binding;
     private SurasAdapter adapter;
     private int checkClick = -1;
+    private String[] listMenu = new String[]{"ScrollView", "Pages", "Video"};
+
     public static FragmentSuras getInstance(){
         if(instance == null){
             instance = new FragmentSuras();
@@ -73,5 +76,24 @@ public class FragmentSuras extends Fragment implements SurasAdapter.ItemViewActi
         arraySuras.get(position).setCheck(true);
         adapter.notifyItemChanged(position);
         checkClick = position;
+        final View mView = getLayoutInflater().inflate(R.layout.checkbox, null);
+        CheckBox mCheckBox = mView.findViewById(R.id.cb_donotshowagain);
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(getContext());
+        mBuilder.setTitle("Title" + arraySuras.get(position));
+        mBuilder.setSingleChoiceItems(listMenu, -1, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // dialog.dismiss();
+            }
+        });
+        mBuilder.setView(mView);
+        mBuilder.setPositiveButton("Choice", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        AlertDialog alertDialog = mBuilder.create();
+        alertDialog.show();
     }
 }
