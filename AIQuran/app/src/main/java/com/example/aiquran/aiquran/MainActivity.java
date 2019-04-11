@@ -8,7 +8,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.aiquran.aiquran.activities.BookMarkActivity;
 import com.example.aiquran.aiquran.activities.ScrollActivity;
+import com.example.aiquran.aiquran.activities.SearchActivity;
 import com.example.aiquran.aiquran.adapters.MyAdapter;
 import com.example.aiquran.aiquran.databinding.ActivityMainBinding;
 
@@ -42,6 +44,8 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
                 break;
             }
             case R.id.search:{
+                Intent intent = new Intent(this,SearchActivity.class);
+                startActivity(intent);
                 break;
             }
             case R.id.help:{
@@ -62,6 +66,8 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
                 break;
             }
             case R.id.bookmarks: {
+                Intent intent = new Intent(this,BookMarkActivity.class);
+                startActivity(intent);
                 break;
             }
         }

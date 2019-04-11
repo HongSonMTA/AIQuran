@@ -17,6 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.ScrollActivity" />
+        <activity android:name=".activities.BookMarkActivity" />
+        <activity android:name=".activities.SearchActivity" />
     </application>
 
 </manifest>
