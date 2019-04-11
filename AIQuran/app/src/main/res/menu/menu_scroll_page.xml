@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:title="Add Bookmark"/>
-    <item android:title="Settings/Download Audio"/>
-    <item android:title="Next Sura"/>
-    <item android:title="Previous Sura"/>
-    <item android:title="Turn night reading mode on"/>
-    <item android:title="Turn word meaning off"/>
-    <item android:title="Tafsir \ Translation options"/>
-    <item android:title="Go to Ayah"/>
-    <item android:title="Memorization By Typing"/>
+    <item android:id="@+id/add_book"
+        android:title="Add Bookmark"/>
+    <item android:id="@+id/settings"
+        android:title="Settings/Download Audio"/>
+    <item android:id="@+id/next"
+        android:title="Next Sura"/>
+    <item android:id="@+id/previous"
+        android:title="Previous Sura"/>
+    <item android:id="@+id/turn_night"
+        android:title="Turn night reading mode on"/>
+    <item android:id="@+id/turn_word"
+        android:title="Turn word meaning off"/>
+    <item android:id="@+id/translation"
+        android:title="Tafsir \ Translation options"/>
+    <item android:id="@+id/go_to"
+        android:title="Go to Ayah"/>
+    <item android:id="@+id/memorization"
+        android:title="Memorization By Typing"/>
 </menu>
