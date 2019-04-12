@@ -19,6 +19,7 @@
         <activity android:name=".activities.ScrollActivity" />
         <activity android:name=".activities.BookMarkActivity" />
         <activity android:name=".activities.SearchActivity" />
+        <activity android:name=".activities.ResultSearchActivity" />
     </application>
 
 </manifest>
