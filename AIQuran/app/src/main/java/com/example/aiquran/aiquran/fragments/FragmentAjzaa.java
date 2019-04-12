@@ -2,11 +2,16 @@ package com.example.aiquran.aiquran.fragments;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,20 +19,24 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.aiquran.aiquran.R;
+import com.example.aiquran.aiquran.activities.ScrollActivity;
+import com.example.aiquran.aiquran.adapters.AjazzAdapter;
+import com.example.aiquran.aiquran.adapters.SurasAdapter;
 import com.example.aiquran.aiquran.databinding.FragmentAjzaaBinding;
+import com.example.aiquran.aiquran.models.Ajazz;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FragmentAjzaa extends Fragment {
+public class FragmentAjzaa extends Fragment implements AjazzAdapter.ItemViewActionCallBack {
     private static FragmentAjzaa instance;
     private FragmentAjzaaBinding binding;
-    private ListView listView;
-    private ArrayList<String> myList = new ArrayList<>();
-    private ArrayAdapter<String> adapter;
-    private String[] listMenu = new String[]{"ScrollView", "Pages", "Video"};
+    private ArrayList<Ajazz> arrAjazz;
+    private AjazzAdapter adapter;
+    private String[] listMenu = new String[]{"Scrolling", "Paging", "AI-Quran TV"};
 
     public static FragmentAjzaa getInstance() {
         if (instance == null) {
@@ -41,47 +50,61 @@ public class FragmentAjzaa extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_ajzaa, container, false);
         View view = binding.getRoot();
-        initList();
+        adapter = new AjazzAdapter(getContext(), arrAjazz);
+        binding.lvSuras.setLayoutManager(new LinearLayoutManager(getActivity()));
+        binding.lvSuras.setAdapter(adapter);
+        adapter.setCallBack(this);
         return view;
     }
 
-    private void initList() {
-        myList.add("1");
-        myList.add("2");
-        myList.add("3");
-        myList.add("4");
-        myList.add("5");
-        myList.add("6");
-        myList.add("7");
-        myList.add("8");
-        myList.add("9");
-        myList.add("10");
-        adapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_expandable_list_item_1, myList);
-        binding.listView.setAdapter(adapter);
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        arrAjazz = new ArrayList<>();
+        arrAjazz.add(new Ajazz("Joza 1","Hezb 1","Hezb 2","3/4","1/2","3/4","1/4","1/2","3/4"));
+        arrAjazz.add(new Ajazz("Joza 2","Hezb 3","Hezb 4","1/4","1/2","3/4","1/4","1/2","3/4"));
+        arrAjazz.add(new Ajazz("Joza 3","Hezb 5","Hezb 6","1/4","1/2","3/4","1/4","1/2","3/4"));
+        arrAjazz.add(new Ajazz("Joza 4","Hezb 7","Hezb 8","1/4","1/2","3/4","1/4","1/2","3/4"));
+        arrAjazz.add(new Ajazz("Joza 5","Hezb 9","Hezb 10","1/4","1/2","3/4","1/4","1/2","3/4"));
+        arrAjazz.add(new Ajazz("Joza 6","Hezb 11","Hezb 12","1/4","1/2","3/4","1/4","1/2","3/4"));
+        arrAjazz.add(new Ajazz("Joza 7","Hezb 13","Hezb 14","1/4","1/2","3/4","1/4","1/2","3/4"));
+        arrAjazz.add(new Ajazz("Joza 8","Hezb 15","Hezb 16","1/4","1/2","3/4","1/4","1/2","3/4"));
+        arrAjazz.add(new Ajazz("Joza 9","Hezb 17","Hezb 18","1/4","1/2","3/4","1/4","1/2","3/4"));
+    }
+
+    @Override
+    public void onClick(int position) {
+        TextView txt = new TextView(getContext());
+        txt.setText("Choose the suitable method to explore the Holy Quran");
+        txt.setPadding(20,20,20,20);
+        txt.setTextSize(25);
+        txt.setTypeface(null, Typeface.BOLD);
+        txt.setTextColor(Color.BLACK);
         final View mView = getLayoutInflater().inflate(R.layout.checkbox, null);
         CheckBox mCheckBox = mView.findViewById(R.id.cb_donotshowagain);
-        binding.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(getContext());
+        mBuilder.setTitle("Choose the suitable method to explore the Holy Quran");
+        //mBuilder.setCustomTitle(txt);
+        mBuilder.setSingleChoiceItems(listMenu, -1, new DialogInterface.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                AlertDialog.Builder mBuilder = new AlertDialog.Builder(getContext());
-                mBuilder.setTitle("Title" + myList.get(position));
-                mBuilder.setSingleChoiceItems(listMenu, -1, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                       // dialog.dismiss();
-                    }
-                });
-                mBuilder.setView(mView);
-                mBuilder.setPositiveButton("Choice", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                    }
-                });
-                //mBuilder.setNegativeButton("Cancle", null);
-                AlertDialog alertDialog = mBuilder.create();
-                alertDialog.show();
+            public void onClick(DialogInterface dialog, int which) {
+                // dialog.dismiss();
             }
         });
+        mBuilder.setView(mView);
+        mBuilder.setPositiveButton("Choose", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent = new Intent(getContext(),ScrollActivity.class);
+                startActivity(intent);
+            }
+        });
+        AlertDialog alertDialog = mBuilder.create();
+        alertDialog.show();
+        DisplayMetrics dm = new DisplayMetrics();
+        getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
+        int width =(int) dm.widthPixels * 80/100;
+        int height = dm.heightPixels * 55/100;
+        alertDialog.getWindow().setLayout(width, height); //Controlling width and height.
     }
 }
