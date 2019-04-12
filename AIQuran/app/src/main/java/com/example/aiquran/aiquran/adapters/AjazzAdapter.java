@@ -39,6 +39,78 @@ public class AjazzAdapter extends RecyclerView.Adapter<AjazzAdapter.ViewHoder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHoder viewHoder, final int i) {
         viewHoder.binding.setItem(arrayAjazz.get(i));
+        viewHoder.binding.txtJoza.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (callBack != null) {
+                    callBack.onClick(i);
+                }
+            }
+        });
+        viewHoder.binding.txtHezbTop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (callBack != null) {
+                    callBack.onClick(i);
+                }
+            }
+        });
+        viewHoder.binding.txtHezbBottom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (callBack != null) {
+                    callBack.onClick(i);
+                }
+            }
+        });
+        viewHoder.binding.txt14Top.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (callBack != null) {
+                    callBack.onClick(i);
+                }
+            }
+        });
+        viewHoder.binding.txt14Bottom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (callBack != null) {
+                    callBack.onClick(i);
+                }
+            }
+        });
+        viewHoder.binding.txt12Top.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (callBack != null) {
+                    callBack.onClick(i);
+                }
+            }
+        });
+        viewHoder.binding.txt12Bottom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (callBack != null) {
+                    callBack.onClick(i);
+                }
+            }
+        });
+        viewHoder.binding.txt34Top.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (callBack != null) {
+                    callBack.onClick(i);
+                }
+            }
+        });
+        viewHoder.binding.txt34Bottom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (callBack != null) {
+                    callBack.onClick(i);
+                }
+            }
+        });
         viewHoder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -61,7 +61,7 @@ public class FragmentAjzaa extends Fragment implements AjazzAdapter.ItemViewActi
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         arrAjazz = new ArrayList<>();
-        arrAjazz.add(new Ajazz("Joza 1","Hezb 1","Hezb 2","3/4","1/2","3/4","1/4","1/2","3/4"));
+        arrAjazz.add(new Ajazz("Joza 1","Hezb 1","Hezb 2","1/4","1/2","3/4","1/4","1/2","3/4"));
         arrAjazz.add(new Ajazz("Joza 2","Hezb 3","Hezb 4","1/4","1/2","3/4","1/4","1/2","3/4"));
         arrAjazz.add(new Ajazz("Joza 3","Hezb 5","Hezb 6","1/4","1/2","3/4","1/4","1/2","3/4"));
         arrAjazz.add(new Ajazz("Joza 4","Hezb 7","Hezb 8","1/4","1/2","3/4","1/4","1/2","3/4"));
