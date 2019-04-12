@@ -8,9 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.aiquran.aiquran.databinding.ItemAjzaaBinding;
-import com.example.aiquran.aiquran.databinding.ItemSuraBinding;
 import com.example.aiquran.aiquran.models.Ajazz;
-import com.example.aiquran.aiquran.models.Suras;
 
 import java.util.ArrayList;
 
