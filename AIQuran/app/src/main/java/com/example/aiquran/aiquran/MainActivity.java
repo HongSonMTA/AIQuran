@@ -6,8 +6,10 @@ import android.databinding.DataBindingUtil;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +18,7 @@ import android.widget.TextView;
 import com.example.aiquran.aiquran.activities.BookMarkActivity;
 import com.example.aiquran.aiquran.activities.ScrollActivity;
 import com.example.aiquran.aiquran.activities.SearchActivity;
+import com.example.aiquran.aiquran.activities.SettingActivity;
 import com.example.aiquran.aiquran.adapters.MyAdapter;
 import com.example.aiquran.aiquran.databinding.ActivityMainBinding;
 
@@ -28,6 +31,8 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+//        Toolbar toolbar = findViewById(R.id.custom_actionbar);
+//        setSupportActionBar(toolbar);
         initView();
     }
 
@@ -41,13 +46,15 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_more, menu);
-        return super.onCreateOptionsMenu(menu);
+        return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.settings: {
+                Intent intent = new Intent(this, SettingActivity.class);
+                startActivity(intent);
                 break;
             }
             case R.id.search: {

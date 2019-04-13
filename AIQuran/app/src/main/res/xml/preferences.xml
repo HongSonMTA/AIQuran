@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="Display">
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="updateNotificationSetting"
+            android:summary="@string/Determine"
+            android:title="@string/BackLight" />
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="updateNotificationSetting"
+            android:summary="@string/IfYou"
+            android:title="@string/WordMeaning" />
+
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/appBrowsingMethodArray"
+            android:entryValues="@array/appBrowsingMethodValue"
+            android:key="BrowsingMethod"
+            android:summary="@string/ChangeHoly"
+            android:title="@string/BrowsingMethod" />
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="updateNotificationSetting"
+            android:summary="@string/WithThisOption"
+            android:title="@string/NightReading" />
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="updateNotificationSetting"
+            android:summary="@string/WithThisOption"
+            android:title="@string/NightReading" />
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="updateNotificationSetting"
+            android:summary="@string/CheckThis"
+            android:title="@string/GraphicalBackground" />
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/appSettingsLanguageListArray"
+            android:entryValues="@array/appSettingsLanguageListValues"
+            android:key="languageSettings"
+            android:summary="@string/ForAll"
+            android:title="@string/ChooseThems"/>.
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Holy Quran Font">
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/appSettingsLanguageListArray"
+            android:entryValues="@array/appSettingsLanguageListValues"
+            android:key="languageSettings"
+            android:summary="@string/FontSize"
+            android:title="@string/SetFont"/>
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/appSettingsLanguageListArray"
+            android:entryValues="@array/appSettingsLanguageListValues"
+            android:key="languageSettings"
+            android:summary="@string/FontColor"
+            android:title="@string/SetColor"/>
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="updateNotificationSetting"
+            android:summary="@string/TextStroke"
+            android:title="@string/SlectText" />
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="updateNotificationSetting"
+            android:summary="@string/TextBold"
+            android:title="@string/ChectText" />
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/appSettingsLanguageListArray"
+            android:entryValues="@array/appSettingsLanguageListValues"
+            android:key="languageSettings"
+            android:summary="@string/TextStrokeColor"
+            android:title="@string/YouChoose"/>
+
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="Audio">
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/appCurentReciterArray"
+            android:entryValues="@array/appCurentReciterValue"
+            android:key="CurentReciterSetting"
+            android:summary="@string/SetThe"
+            android:title="@string/CurentReciter" />
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/appAudioStorageArray"
+            android:entryValues="@array/appCurentReciterValue"
+            android:key="audioStorage"
+            android:summary="@string/ChooseStorage"
+            android:title="@string/AudioStorage" />
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/appSettingsLanguageListArray"
+            android:entryValues="@array/appSettingsLanguageListValues"
+            android:key="languageSettings"
+            android:title="@string/DownloadAudio" />
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="updateNotificationSetting"
+            android:summary="@string/RepeatPlaying"
+            android:title="@string/Repeat" />
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/appChooseAyatArray"
+            android:entryValues="@array/appChooseAyatValue"
+            android:key="ChooseAyat"
+            android:summary="@string/RepeatAyat"
+            android:title="@string/ChooseAyat"/>
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="Translation \ Tafsir">
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="updateNotificationSetting"
+            android:summary="@string/CheckTafsir"
+            android:title="@string/Tafsir" />
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/appSettingsLanguageListArray"
+            android:entryValues="@array/appSettingsLanguageListValues"
+            android:key="languageSettings"
+            android:summary="@string/ChooseTafsir"
+            android:title="@string/ChooseTafsirTranlation" />
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/appSettingsLanguageListArray"
+            android:entryValues="@array/appSettingsLanguageListValues"
+            android:key="languageSettings"
+            android:title="@string/DownloadTafsir" />
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/appSettingsLanguageListArray"
+            android:entryValues="@array/appSettingsLanguageListValues"
+            android:key="languageSettings"
+            android:summary="@string/ChooseTafsirFontSize"
+            android:title="@string/TafsirTranslationFontSize" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
