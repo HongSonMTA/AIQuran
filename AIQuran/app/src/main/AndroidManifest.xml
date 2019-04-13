@@ -20,7 +20,6 @@
         <activity android:name=".activities.BookMarkActivity" />
         <activity android:name=".activities.SearchActivity" />
         <activity android:name=".activities.ResultSearchActivity" />
-        <activity android:name=".activities.SettingActivity" />
     </application>
 
 </manifest>
