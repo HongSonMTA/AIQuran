@@ -24,6 +24,7 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.example.aiquran.aiquran.R;
+import com.example.aiquran.aiquran.activities.PagingActivity;
 import com.example.aiquran.aiquran.activities.ScrollActivity;
 import com.example.aiquran.aiquran.adapters.SurasAdapter;
 import com.example.aiquran.aiquran.databinding.FragmentSurasBinding;
@@ -88,10 +89,12 @@ public class FragmentSuras extends Fragment implements SurasAdapter.ItemViewActi
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(getContext());
         mBuilder.setTitle("Choose the suitable method to explore the Holy Quran");
         //mBuilder.setCustomTitle(txt);
+        final  int[] choose = new int[1];
         mBuilder.setSingleChoiceItems(listMenu, -1, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 // dialog.dismiss();
+                choose[0]=which;
             }
         });
         mBuilder.setView(mView);
@@ -99,6 +102,13 @@ public class FragmentSuras extends Fragment implements SurasAdapter.ItemViewActi
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Intent intent = new Intent(getContext(),ScrollActivity.class);
+                switch (choose[0]){
+                    case 0:
+                        break;
+                    case 1:
+                        intent = new Intent(getContext(), PagingActivity.class);
+                        break;
+                }
                 startActivity(intent);
             }
         });
