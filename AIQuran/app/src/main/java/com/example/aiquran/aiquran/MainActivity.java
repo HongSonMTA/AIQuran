@@ -5,9 +5,13 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+
+import android.support.design.widget.BottomSheetBehavior;
+import android.support.design.widget.BottomSheetDialog;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,7 +26,8 @@ import com.example.aiquran.aiquran.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener {
     private MyAdapter myAdapter;
     private ActivityMainBinding binding;
-    Dialog dialogAbout;
+    private Dialog dialogAbout;
+    private BottomSheetDialog bottomSheetDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         binding.viewPage.setAdapter(myAdapter);
         binding.viewPage.addOnPageChangeListener(this);
         binding.tablayout.setupWithViewPager(binding.viewPage);
+       createBottomSheet();
+        //createBottomSheetBehavior();
     }
 
     @Override
@@ -63,6 +70,8 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
                 break;
             }
             case R.id.share: {
+                bottomSheetDialog.show();
+              //  mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
                 break;
             }
             case R.id.reading_position: {
@@ -112,5 +121,13 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         });
         dialogAbout.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialogAbout.show();
+    }
+
+    private void createBottomSheet() {
+        if (bottomSheetDialog == null) {
+            View bottomSheet = LayoutInflater.from(this).inflate(R.layout.bottom_sheet_share, null);
+            bottomSheetDialog = new BottomSheetDialog(this);
+            bottomSheetDialog.setContentView(bottomSheet);
+        }
     }
 }
