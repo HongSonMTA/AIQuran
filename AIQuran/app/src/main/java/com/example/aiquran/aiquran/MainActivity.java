@@ -20,6 +20,7 @@ import android.widget.TextView;
 import com.example.aiquran.aiquran.activities.BookMarkActivity;
 import com.example.aiquran.aiquran.activities.ScrollActivity;
 import com.example.aiquran.aiquran.activities.SearchActivity;
+import com.example.aiquran.aiquran.activities.SettingActivity;
 import com.example.aiquran.aiquran.adapters.MyAdapter;
 import com.example.aiquran.aiquran.databinding.ActivityMainBinding;
 
@@ -55,6 +56,8 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.settings: {
+                Intent intent = new Intent(this, SettingActivity.class);
+                startActivity(intent);
                 break;
             }
             case R.id.search: {
