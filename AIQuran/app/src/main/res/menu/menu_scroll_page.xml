@@ -13,7 +13,7 @@
     <item android:id="@+id/turn_word"
         android:title="Turn word meaning off"/>
     <item android:id="@+id/translation"
-        android:title="Tafsir \ Translation options"/>
+        android:title="Tafsir \Translation options"/>
     <item android:id="@+id/go_to"
         android:title="Go to Ayah"/>
     <item android:id="@+id/memorization"

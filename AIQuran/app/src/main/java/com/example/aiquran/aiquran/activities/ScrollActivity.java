@@ -1,13 +1,21 @@
 package com.example.aiquran.aiquran.activities;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.text.InputType;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.Toast;
 
@@ -20,6 +28,7 @@ public class ScrollActivity extends AppCompatActivity implements ScrollAdapter.I
     private ActivityScrollingBinding binding;
     private ScrollAdapter adapter;
     private Book book;
+    private int  overallXScrol = 0;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,10 +46,28 @@ public class ScrollActivity extends AppCompatActivity implements ScrollAdapter.I
         adapter.setCallBack(this);
         // binding.lvContentBook.scrollToPosition(3);
         binding.seekBar.setMax(book.getPages().size());
+        binding.lvContentBook.setOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                Log.e("newState","newState->" + newState);
+            }
+
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                overallXScrol = overallXScrol + dy;
+
+                Log.e("check","overall->" + overallXScrol);
+            }
+        });
         binding.seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 binding.lvContentBook.scrollToPosition(progress);
+               //  binding.lvContentBook.
+//                binding.txtPage.setText()
+                // binding.lvContentBook.get
                 // binding.lvContentBook.smoothScrollToPosition(progress);
                 // Toast.makeText(ScrollActivity.this,"123123",Toast.LENGTH_LONG).show();
             }
@@ -70,6 +97,8 @@ public class ScrollActivity extends AppCompatActivity implements ScrollAdapter.I
                 break;
             }
             case R.id.settings:{
+                Intent intent = new Intent(this,SettingActivity.class);
+                startActivity(intent);
                 break;
             }
             case R.id.next:{
@@ -77,7 +106,6 @@ public class ScrollActivity extends AppCompatActivity implements ScrollAdapter.I
                 break;
             }
             case R.id.previous:{
-
                 break;
             }
             case R.id.turn_night:{
@@ -90,6 +118,7 @@ public class ScrollActivity extends AppCompatActivity implements ScrollAdapter.I
                 break;
             }
             case R.id.go_to:{
+                dialogGoto();
                 break;
             }
             case R.id.memorization:{
@@ -102,5 +131,25 @@ public class ScrollActivity extends AppCompatActivity implements ScrollAdapter.I
     @Override
     public void onClick(int position) {
 
+    }
+
+    private void dialogGoto() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Go to Ayah");
+        final View mView = getLayoutInflater().inflate(R.layout.input_page_number, null);
+
+        final EditText input = mView.findViewById(R.id.edt_input_page);
+        input.setInputType(InputType.TYPE_CLASS_NUMBER);
+        builder.setView(mView);
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                binding.lvContentBook.scrollToPosition(Integer.parseInt(input.getText().toString()) - 1);
+            }
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 }
