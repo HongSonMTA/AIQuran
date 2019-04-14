@@ -54,6 +54,8 @@ public class PagingActivity extends AppCompatActivity {
                 break;
             }
             case R.id.settings: {
+                Intent intent = new Intent(this,SettingActivity.class);
+                startActivity(intent);
                 break;
             }
             case R.id.next: {
@@ -71,6 +73,8 @@ public class PagingActivity extends AppCompatActivity {
                 break;
             }
             case R.id.translation: {
+                Intent intent = new Intent(this,SettingTafsirTranslationActivity.class);
+                startActivity(intent);
                 break;
             }
             case R.id.go_to: {

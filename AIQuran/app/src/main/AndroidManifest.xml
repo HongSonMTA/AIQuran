@@ -22,6 +22,7 @@
         <activity android:name=".activities.ResultSearchActivity" />
         <activity android:name=".activities.PagingActivity" />
         <activity android:name=".activities.SettingActivity" />
+        <activity android:name=".activities.SettingTafsirTranslationActivity" />
     </application>
 
 </manifest>

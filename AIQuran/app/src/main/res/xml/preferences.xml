@@ -123,9 +123,9 @@
             android:title="@string/Tafsir" />
         <ListPreference
             android:defaultValue="1"
-            android:entries="@array/appSettingsLanguageListArray"
-            android:entryValues="@array/appSettingsLanguageListValues"
-            android:key="languageSettings"
+            android:entries="@array/appChooseTranslationArray"
+            android:entryValues="@array/appChooseTranslationValue"
+            android:key="ChooseTranslation"
             android:summary="@string/ChooseTafsir"
             android:title="@string/ChooseTafsirTranlation" />
         <ListPreference
@@ -136,9 +136,9 @@
             android:title="@string/DownloadTafsir" />
         <ListPreference
             android:defaultValue="1"
-            android:entries="@array/appSettingsLanguageListArray"
-            android:entryValues="@array/appSettingsLanguageListValues"
-            android:key="languageSettings"
+            android:entries="@array/appTafsirTranslationFontSizeArray"
+            android:entryValues="@array/appTafsirTranslationFontSizeValue"
+            android:key="TafsirTranslationFontSize"
             android:summary="@string/ChooseTafsirFontSize"
             android:title="@string/TafsirTranslationFontSize" />
 

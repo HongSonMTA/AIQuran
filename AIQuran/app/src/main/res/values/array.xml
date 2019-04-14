@@ -120,4 +120,96 @@
         <item>29</item>
         <item>30</item>
     </string-array>
+    <string-array name="appTafsirTranslationFontSizeArray">
+        <item>10 unit</item>
+        <item>11 unit</item>
+        <item>12 unit</item>
+        <item>13 unit</item>
+        <item>14 unit</item>
+        <item>15 unit</item>
+        <item>16 unit</item>
+        <item>17 unit</item>
+        <item>18 unit</item>
+        <item>19 unit</item>
+        <item>20 unit</item>
+        <item>21 unit</item>
+        <item>22 unit</item>
+        <item>23 unit</item>
+        <item>24 unit</item>
+        <item>25 unit</item>
+        <item>26 unit</item>
+        <item>27 unit</item>
+        <item>28 unit</item>
+        <item>29 unit</item>
+        <item>30 unit</item>
+        <item>31 unit</item>
+        <item>32 unit</item>
+        <item>33 unit</item>
+        <item>34 unit</item>
+        <item>35 unit</item>
+        <item>36 unit</item>
+        <item>37 unit</item>
+        <item>38 unit</item>
+        <item>39 unit</item>
+        <item>40 unit</item>
+        <item>41 unit</item>
+        <item>42 unit</item>
+        <item>43 unit</item>
+        <item>45 unit</item>
+        <item>46 unit</item>
+        <item>47 unit</item>
+        <item>48 unit</item>
+        <item>49 unit</item>
+        <item>50 unit</item>
+    </string-array>
+    <string-array name="appTafsirTranslationFontSizeValue">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
+        <item>32</item>
+        <item>33</item>
+        <item>34</item>
+        <item>35</item>
+        <item>36</item>
+        <item>37</item>
+        <item>38</item>
+        <item>39</item>
+        <item>40</item>
+    </string-array>
+    <string-array name="appChooseTranslationArray">
+        <item>English - Abdullah Yusuf Ali 1985</item>
+        <item>English - Saheeh International </item>
+    </string-array>
+    <string-array name="appChooseTranslationValue">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
 </resources>

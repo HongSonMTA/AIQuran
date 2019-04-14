@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="Translation \ Tafsir">
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="updateNotificationSetting"
+            android:summary="@string/CheckTafsir"
+            android:title="@string/Tafsir" />
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/appChooseTranslationArray"
+            android:entryValues="@array/appChooseTranslationValue"
+            android:key="ChooseTranslation"
+            android:summary="@string/ChooseTafsir"
+            android:title="@string/ChooseTafsirTranlation" />
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/appSettingsLanguageListArray"
+            android:entryValues="@array/appSettingsLanguageListValues"
+            android:key="languageSettings"
+            android:title="@string/DownloadTafsir" />
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/appTafsirTranslationFontSizeArray"
+            android:entryValues="@array/appTafsirTranslationFontSizeValue"
+            android:key="TafsirTranslationFontSize"
+            android:summary="@string/ChooseTafsirFontSize"
+            android:title="@string/TafsirTranslationFontSize" />
+
+    </PreferenceCategory>
+</PreferenceScreen>

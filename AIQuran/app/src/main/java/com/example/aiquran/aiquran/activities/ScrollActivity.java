@@ -115,6 +115,8 @@ public class ScrollActivity extends AppCompatActivity implements ScrollAdapter.I
                 break;
             }
             case R.id.translation:{
+                Intent intent = new Intent(this,SettingTafsirTranslationActivity.class);
+                startActivity(intent);
                 break;
             }
             case R.id.go_to:{
