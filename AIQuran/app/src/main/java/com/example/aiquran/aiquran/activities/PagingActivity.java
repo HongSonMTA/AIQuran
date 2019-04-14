@@ -1,6 +1,7 @@
 package com.example.aiquran.aiquran.activities;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
@@ -74,6 +75,7 @@ public class PagingActivity extends AppCompatActivity {
             }
             case R.id.go_to: {
                 dialogGoto();
+
                 break;
             }
             case R.id.memorization: {
@@ -145,7 +147,7 @@ public class PagingActivity extends AppCompatActivity {
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                    viewPager.setCurrentItem(Integer.parseInt(input.getText().toString()) - 1);
+                viewPager.setCurrentItem(Integer.parseInt(input.getText().toString()) - 1);
             }
         });
 

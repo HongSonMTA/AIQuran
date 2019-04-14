@@ -73,8 +73,9 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
                 break;
             }
             case R.id.share: {
-                bottomSheetDialog.show();
-              //  mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                startIntentSend();
+               // bottomSheetDialog.show();
+
                 break;
             }
             case R.id.reading_position: {
@@ -124,6 +125,19 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         });
         dialogAbout.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialogAbout.show();
+    }
+
+
+    private void startIntentSend() {
+        Intent intentSend = new Intent(Intent.ACTION_SEND);
+        intentSend.setType("Text/plain");
+        String shareBody = "Share body";
+        String shareSub = "Share Subject";
+
+        intentSend.putExtra(Intent.EXTRA_TEXT, shareBody);
+        intentSend.putExtra(Intent.EXTRA_SUBJECT, shareSub);
+        startActivity(Intent.createChooser(intentSend, "Share"));
+
     }
 
     private void createBottomSheet() {

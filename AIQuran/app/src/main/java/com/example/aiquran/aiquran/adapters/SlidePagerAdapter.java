@@ -1,21 +1,17 @@
 package com.example.aiquran.aiquran.adapters;
 
 import android.content.Context;
-import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.aiquran.aiquran.R;
-import com.example.aiquran.aiquran.databinding.ItemPageBinding;
 import com.example.aiquran.aiquran.models.Book;
 
-import java.util.ArrayList;
 
 public class SlidePagerAdapter extends PagerAdapter {
     private Context context;
