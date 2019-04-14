@@ -84,13 +84,7 @@ public class PagingActivity extends AppCompatActivity {
     }
 
     private void initBook() {
-        ArrayList<String> pages = new ArrayList<>();
-        pages.add("Page 1");
-        pages.add("Page 2");
-        pages.add("Page 3");
-        pages.add("Page 4");
-        pages.add("Page 5");
-        book = new Book("Name of Book", pages);
+        book = new Book();
     }
 
     private void initSidePage() {
@@ -138,7 +132,6 @@ public class PagingActivity extends AppCompatActivity {
             }
         }
     };
-
 
     private void dialogGoto() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
