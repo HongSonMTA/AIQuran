@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.aiquran.aiquran.R;
+import com.example.aiquran.aiquran.models.Book;
 
 import java.util.ArrayList;
 
@@ -18,11 +19,11 @@ public class SlidePagerAdapter extends PagerAdapter {
 
     private Context context;
     private LayoutInflater inflater;
-    private Book book =new Book();
+    private Book book ;
 
-
-    public SlidePagerAdapter(Context context) {
+    public SlidePagerAdapter(Context context,Book book) {
         this.context = context;
+        this.book=book;
     }
 
     @Override
@@ -49,33 +50,5 @@ public class SlidePagerAdapter extends PagerAdapter {
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
         container.removeView((LinearLayout) object);
-    }
-}
-
-class Book {
-    private String name;
-    private ArrayList<String> pages ;
-
-    public Book() {
-        pages=new ArrayList<>();
-        name="My Book";
-        pages.add("Page 1");
-        pages.add("Page 2");
-        pages.add("Page 3");
-        pages.add("Page 4");
-        pages.add("Page 5");
-    }
-
-    public Book(String name, ArrayList<String> pages) {
-        this.name = name;
-        this.pages = pages;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public ArrayList<String> getPages() {
-        return pages;
     }
 }

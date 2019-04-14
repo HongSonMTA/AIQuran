@@ -56,17 +56,17 @@ public class BookMarkActivity extends AppCompatActivity implements BookMarkAdapt
         mBuilder.setTitle("Attention");
         mBuilder.setMessage("Choose the suitable method to explore the Holy Quran");
         mBuilder.setView(mView);
-        mBuilder.setPositiveButton("PAGING", new DialogInterface.OnClickListener() {
+        mBuilder.setPositiveButton("SCROLLING", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Intent intent = new Intent(BookMarkActivity.this, ScrollActivity.class);
                 startActivity(intent);
             }
         });
-        mBuilder.setNegativeButton("SCROLLING", new DialogInterface.OnClickListener() {
+        mBuilder.setNegativeButton("PAGING", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(BookMarkActivity.this, ScrollActivity.class);
+                Intent intent = new Intent(BookMarkActivity.this, PagingActivity.class);
                 startActivity(intent);
             }
         });
