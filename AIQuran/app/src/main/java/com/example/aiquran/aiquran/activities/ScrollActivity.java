@@ -9,12 +9,17 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.SeekBar;
+import android.widget.Toast;
 
 import com.example.aiquran.aiquran.R;
+import com.example.aiquran.aiquran.adapters.ScrollAdapter;
 import com.example.aiquran.aiquran.databinding.ActivityScrollingBinding;
+import com.example.aiquran.aiquran.models.Book;
 
-public class ScrollActivity extends AppCompatActivity {
+public class ScrollActivity extends AppCompatActivity implements ScrollAdapter.ItemViewActionCallBack {
     private ActivityScrollingBinding binding;
+    private ScrollAdapter adapter;
+    private Book book;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -22,31 +27,34 @@ public class ScrollActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Scroll");
         binding = DataBindingUtil.setContentView(this, R.layout.activity_scrolling);
-//        SeekBar seekBar = findViewById(R.id.seek_bar);
-        // final RecyclerView tmp  = findViewById(R.id.recycler_view);
-//        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-//            @Override
-//            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-//                if (fromUser) {
-//                    // dựa vào progress để tính xem listview phải scroll tới đâu
-//                    // ví dụ listview gồm 100 item
-//                    // nếu progress là 50 thì tương ứng listview sẽ scroll tới item 50
-//                    //tmp.scrollToPosition(); dùng hàm để scroll thôi
-//                    //tmp.smoothScrollToPosition();// ok anh e hiểu rồi
-//                    // để e thử luôn
-//                }
-//            }
-//
-//            @Override
-//            public void onStartTrackingTouch(SeekBar seekBar) {
-//
-//            }
-//
-//            @Override
-//            public void onStopTrackingTouch(SeekBar seekBar) {
-//
-//            }
-//        });
+        initView();
+    }
+
+    private void initView() {
+        book = new Book();
+        adapter = new ScrollAdapter(this,book);
+        binding.lvContentBook.setAdapter(adapter);
+        adapter.setCallBack(this);
+        // binding.lvContentBook.scrollToPosition(3);
+        binding.seekBar.setMax(book.getPages().size());
+        binding.seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                binding.lvContentBook.scrollToPosition(progress);
+                // binding.lvContentBook.smoothScrollToPosition(progress);
+                // Toast.makeText(ScrollActivity.this,"123123",Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
     }
 
     @Override
@@ -89,5 +97,10 @@ public class ScrollActivity extends AppCompatActivity {
             }
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(int position) {
+
     }
 }
