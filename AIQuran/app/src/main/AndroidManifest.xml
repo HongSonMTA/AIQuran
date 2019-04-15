@@ -23,6 +23,7 @@
         <activity android:name=".activities.PagingActivity" />
         <activity android:name=".activities.SettingActivity" />
         <activity android:name=".activities.SettingTafsirTranslationActivity" />
+        <activity android:name=".activities.AudioActivity" />
     </application>
 
 </manifest>

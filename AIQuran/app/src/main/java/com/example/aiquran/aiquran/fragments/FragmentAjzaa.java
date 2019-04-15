@@ -22,6 +22,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.aiquran.aiquran.R;
+import com.example.aiquran.aiquran.activities.AudioActivity;
 import com.example.aiquran.aiquran.activities.PagingActivity;
 import com.example.aiquran.aiquran.activities.ScrollActivity;
 import com.example.aiquran.aiquran.adapters.AjazzAdapter;
@@ -101,10 +102,11 @@ public class FragmentAjzaa extends Fragment implements AjazzAdapter.ItemViewActi
             public void onClick(DialogInterface dialog, int which) {
                 Intent  intent = new Intent(getContext(), ScrollActivity.class);;
                 switch (choose[0]) {
-                    case 0:
-                        break;
                     case 1:
                         intent = new Intent(getContext(), PagingActivity.class);
+                        break;
+                    case 2:
+                        intent = new Intent(getContext(), AudioActivity.class);
                         break;
                 }
                 startActivity(intent);
