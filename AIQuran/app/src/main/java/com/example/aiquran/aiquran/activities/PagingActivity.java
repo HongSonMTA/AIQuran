@@ -54,7 +54,7 @@ public class PagingActivity extends AppCompatActivity {
                 break;
             }
             case R.id.settings: {
-                Intent intent = new Intent(this,SettingActivity.class);
+                Intent intent = new Intent(this, SettingActivity.class);
                 startActivity(intent);
                 break;
             }
@@ -73,7 +73,7 @@ public class PagingActivity extends AppCompatActivity {
                 break;
             }
             case R.id.translation: {
-                Intent intent = new Intent(this,SettingTafsirTranslationActivity.class);
+                Intent intent = new Intent(this, SettingTafsirTranslationActivity.class);
                 startActivity(intent);
                 break;
             }
@@ -83,6 +83,7 @@ public class PagingActivity extends AppCompatActivity {
                 break;
             }
             case R.id.memorization: {
+                dialogMemorization();
                 break;
             }
         }
@@ -154,6 +155,19 @@ public class PagingActivity extends AppCompatActivity {
                 viewPager.setCurrentItem(Integer.parseInt(input.getText().toString()) - 1);
             }
         });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    private void dialogMemorization() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Choose Memorization Method");
+        final View mView = getLayoutInflater().inflate(R.layout.popup_memorization, null);
+
+        TextView firstStage = mView.findViewById(R.id.txt_FirstStage);
+        TextView secondStage = mView.findViewById(R.id.txt_SecondStage);
+        builder.setView(mView);
 
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
