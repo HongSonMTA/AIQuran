@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/addBookmark_Audio_menu"
+        android:title="Add Bookmark"/>
+    <item android:id="@+id/setting_Audio_menu"
+        android:title="Setting/Download Audio"/>
+    <item android:id="@+id/nextSura_Audio_menu"
+        android:title="Next Sura"/>
+    <item android:id="@+id/prevSura_Audio_menu"
+        android:title="Previous Sura"/>
+</menu>

@@ -1,21 +1,16 @@
 package com.example.aiquran.aiquran.adapters;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.example.aiquran.aiquran.databinding.ItemBookMarkBinding;
 import com.example.aiquran.aiquran.databinding.ItemPageBinding;
-import com.example.aiquran.aiquran.databinding.ItemSuraBinding;
 import com.example.aiquran.aiquran.models.Book;
 import com.example.aiquran.aiquran.models.ContentBook;
-import com.example.aiquran.aiquran.models.Suras;
 
-import java.util.ArrayList;
 
 public class ScrollAdapter extends RecyclerView.Adapter<ScrollAdapter.ViewHoder> {
     private Book book;
@@ -46,7 +41,7 @@ public class ScrollAdapter extends RecyclerView.Adapter<ScrollAdapter.ViewHoder>
             @Override
             public void onClick(View v) {
                 if(callBack!= null){
-                    callBack.onClick(i);
+                    callBack.onClick(i,v);
                 }
             }
         });
@@ -70,6 +65,6 @@ public class ScrollAdapter extends RecyclerView.Adapter<ScrollAdapter.ViewHoder>
         }
     }
     public interface ItemViewActionCallBack {
-        void onClick(int position);
+        void onClick(int position,View view);
     }
 }
