@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.text.InputType;
 import android.util.Log;
@@ -17,7 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.SeekBar;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.example.aiquran.aiquran.R;
 import com.example.aiquran.aiquran.adapters.ScrollAdapter;
@@ -28,7 +29,7 @@ public class ScrollActivity extends AppCompatActivity implements ScrollAdapter.I
     private ActivityScrollingBinding binding;
     private ScrollAdapter adapter;
     private Book book;
-    private int  overallXScrol = 0;
+    private int overallXScrol = 0;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -41,7 +42,7 @@ public class ScrollActivity extends AppCompatActivity implements ScrollAdapter.I
 
     private void initView() {
         book = new Book();
-        adapter = new ScrollAdapter(this,book);
+        adapter = new ScrollAdapter(this, book);
         binding.lvContentBook.setAdapter(adapter);
         adapter.setCallBack(this);
         // binding.lvContentBook.scrollToPosition(3);
@@ -50,7 +51,7 @@ public class ScrollActivity extends AppCompatActivity implements ScrollAdapter.I
             @Override
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
-                Log.e("newState","newState->" + newState);
+                Log.e("newState", "newState->" + newState);
             }
 
             @Override
@@ -58,14 +59,14 @@ public class ScrollActivity extends AppCompatActivity implements ScrollAdapter.I
                 super.onScrolled(recyclerView, dx, dy);
                 overallXScrol = overallXScrol + dy;
 
-                Log.e("check","overall->" + overallXScrol);
+                Log.e("check", "overall->" + overallXScrol);
             }
         });
         binding.seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 binding.lvContentBook.scrollToPosition(progress);
-               //  binding.lvContentBook.
+                //  binding.lvContentBook.
 //                binding.txtPage.setText()
                 // binding.lvContentBook.get
                 // binding.lvContentBook.smoothScrollToPosition(progress);
@@ -92,38 +93,39 @@ public class ScrollActivity extends AppCompatActivity implements ScrollAdapter.I
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.add_book:{
+        switch (item.getItemId()) {
+            case R.id.add_book: {
                 break;
             }
-            case R.id.settings:{
-                Intent intent = new Intent(this,SettingActivity.class);
+            case R.id.settings: {
+                Intent intent = new Intent(this, SettingActivity.class);
                 startActivity(intent);
                 break;
             }
-            case R.id.next:{
+            case R.id.next: {
                 finish();
                 break;
             }
-            case R.id.previous:{
+            case R.id.previous: {
                 break;
             }
-            case R.id.turn_night:{
+            case R.id.turn_night: {
                 break;
             }
-            case R.id.turn_word:{
+            case R.id.turn_word: {
                 break;
             }
-            case R.id.translation:{
-                Intent intent = new Intent(this,SettingTafsirTranslationActivity.class);
+            case R.id.translation: {
+                Intent intent = new Intent(this, SettingTafsirTranslationActivity.class);
                 startActivity(intent);
                 break;
             }
-            case R.id.go_to:{
+            case R.id.go_to: {
                 dialogGoto();
                 break;
             }
-            case R.id.memorization:{
+            case R.id.memorization: {
+                dialogMemorization();
                 break;
             }
         }
@@ -131,8 +133,11 @@ public class ScrollActivity extends AppCompatActivity implements ScrollAdapter.I
     }
 
     @Override
-    public void onClick(int position) {
-
+    public void onClick(int position, View view) {
+        PopupMenu popupMenu = new PopupMenu(this, view);
+        popupMenu.getMenuInflater().inflate(R.menu.display_text_menu, popupMenu.getMenu());
+        popupMenu.getMenu().add(book.getPages().get(position).getDescribe());
+        popupMenu.show();
     }
 
     private void dialogGoto() {
@@ -150,6 +155,19 @@ public class ScrollActivity extends AppCompatActivity implements ScrollAdapter.I
                 binding.lvContentBook.scrollToPosition(Integer.parseInt(input.getText().toString()) - 1);
             }
         });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    private void dialogMemorization() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Choose Memorization Method");
+        final View mView = getLayoutInflater().inflate(R.layout.popup_memorization, null);
+
+        TextView firstStage = mView.findViewById(R.id.txt_FirstStage);
+        TextView secondStage = mView.findViewById(R.id.txt_SecondStage);
+        builder.setView(mView);
 
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
