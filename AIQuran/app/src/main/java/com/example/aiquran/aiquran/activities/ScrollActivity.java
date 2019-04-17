@@ -45,7 +45,6 @@ public class ScrollActivity extends AppCompatActivity implements ScrollAdapter.I
         adapter = new ScrollAdapter(this, book);
         binding.lvContentBook.setAdapter(adapter);
         adapter.setCallBack(this);
-        // binding.lvContentBook.scrollToPosition(3);
         binding.seekBar.setMax(book.getPages().size());
         binding.lvContentBook.setOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
@@ -57,20 +56,17 @@ public class ScrollActivity extends AppCompatActivity implements ScrollAdapter.I
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-                overallXScrol = overallXScrol + dy;
-
-                Log.e("check", "overall->" + overallXScrol);
+                int rvHeight = recyclerView.getHeight();
+                int offset = recyclerView.computeVerticalScrollOffset();
+                int page = offset / rvHeight;
+                Log.e("check", "page: " + page);
+                binding.txtPage.setText(page + " Page ");
             }
         });
         binding.seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 binding.lvContentBook.scrollToPosition(progress);
-                //  binding.lvContentBook.
-//                binding.txtPage.setText()
-                // binding.lvContentBook.get
-                // binding.lvContentBook.smoothScrollToPosition(progress);
-                // Toast.makeText(ScrollActivity.this,"123123",Toast.LENGTH_LONG).show();
             }
 
             @Override

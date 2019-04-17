@@ -9,7 +9,7 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:background="@color/colorGray">
+            android:background="#50E0E0E0">
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -41,7 +41,7 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:background="@color/colorGray">
+            android:background="#50E0E0E0">
             <com.example.aiquran.aiquran.views.VerticalSeekBar
                 android:id="@+id/seek_bar"
                 android:layout_width="wrap_content"
