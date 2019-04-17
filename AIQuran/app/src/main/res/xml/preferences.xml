@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory
         android:title="Display">
@@ -28,11 +28,6 @@
         <SwitchPreference
             android:defaultValue="true"
             android:key="updateNotificationSetting"
-            android:summary="@string/WithThisOption"
-            android:title="@string/NightReading" />
-        <SwitchPreference
-            android:defaultValue="true"
-            android:key="updateNotificationSetting"
             android:summary="@string/CheckThis"
             android:title="@string/GraphicalBackground" />
         <ListPreference
@@ -53,31 +48,26 @@
             android:key="languageSettings"
             android:summary="@string/FontSize"
             android:title="@string/SetFont"/>
-        <ListPreference
-            android:defaultValue="1"
-            android:entries="@array/appSettingsLanguageListArray"
-            android:entryValues="@array/appSettingsLanguageListValues"
-            android:key="languageSettings"
-            android:summary="@string/FontColor"
-            android:title="@string/SetColor"/>
+        <com.github.danielnilsson9.colorpickerview.preference.ColorPreference
+            android:defaultValue="0xFF000000"
+            android:key="FontColor"
+            android:summary="@string/SetColor"
+            android:title="@string/FontColor" />
         <SwitchPreference
             android:defaultValue="true"
             android:key="updateNotificationSetting"
-            android:summary="@string/TextStroke"
-            android:title="@string/SlectText" />
+            android:summary="@string/SlectText"
+            android:title="@string/TextStroke" />
         <SwitchPreference
             android:defaultValue="true"
             android:key="updateNotificationSetting"
-            android:summary="@string/TextBold"
-            android:title="@string/ChectText" />
-        <ListPreference
-            android:defaultValue="1"
-            android:entries="@array/appSettingsLanguageListArray"
-            android:entryValues="@array/appSettingsLanguageListValues"
-            android:key="languageSettings"
-            android:summary="@string/TextStrokeColor"
-            android:title="@string/YouChoose"/>
-
+            android:summary="@string/ChectText"
+            android:title="@string/TextBold" />
+        <com.github.danielnilsson9.colorpickerview.preference.ColorPreference
+            android:defaultValue="0xFF000000"
+            android:key="TextStrokeColor"
+            android:summary="@string/YouChoose"
+            android:title="@string/TextStrokeColor" />
     </PreferenceCategory>
     <PreferenceCategory
         android:title="Audio">
@@ -99,7 +89,7 @@
             android:defaultValue="1"
             android:entries="@array/appSettingsLanguageListArray"
             android:entryValues="@array/appSettingsLanguageListValues"
-            android:key="languageSettings"
+            android:key="DownloadAudio"
             android:title="@string/DownloadAudio" />
         <SwitchPreference
             android:defaultValue="true"
@@ -132,7 +122,7 @@
             android:defaultValue="1"
             android:entries="@array/appSettingsLanguageListArray"
             android:entryValues="@array/appSettingsLanguageListValues"
-            android:key="languageSettings"
+            android:key="DownloadTafsir"
             android:title="@string/DownloadTafsir" />
         <ListPreference
             android:defaultValue="1"
@@ -141,7 +131,6 @@
             android:key="TafsirTranslationFontSize"
             android:summary="@string/ChooseTafsirFontSize"
             android:title="@string/TafsirTranslationFontSize" />
-
     </PreferenceCategory>
 
 </PreferenceScreen>
