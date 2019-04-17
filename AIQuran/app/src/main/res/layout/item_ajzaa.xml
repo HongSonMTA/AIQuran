@@ -31,11 +31,11 @@
                     android:layout_height="match_parent"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:textStyle="bold"
-                    android:textSize="20dp"
+                    style="?android:attr/textAppearanceLarge"
                     android:text="@{item.joza}"/>
             </LinearLayout>
             <LinearLayout
-                android:layout_weight="2.5"
+                android:layout_weight="2"
                 android:layout_width="0dp"
                 android:layout_gravity="center"
                 android:layout_height="match_parent"
@@ -54,7 +54,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:background="?attr/selectableItemBackgroundBorderless"
-                        android:textSize="20dp"
+                        style="?android:attr/textAppearance"
                         android:text="@{item.hezbTop}"/>
                 </LinearLayout>
                 <LinearLayout
@@ -68,7 +68,7 @@
                         android:layout_height="match_parent"
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:gravity="center"
-                        android:textSize="20dp"
+                        style="?android:attr/textAppearance"
                         android:text="@{item.heznBottom}"/>
                 </LinearLayout>
             </LinearLayout>
@@ -92,7 +92,7 @@
                         android:layout_height="match_parent"
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:gravity="center"
-                        android:textSize="16dp"
+                        style="?android:attr/textAppearance"
                         android:text="@{item.top14}"/>
                 </LinearLayout>
 
@@ -110,7 +110,7 @@
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:gravity="center"
                         android:text="@{item.bottom14}"
-                        android:textSize="16dp" />
+                        style="?android:attr/textAppearance"/>
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
@@ -134,7 +134,7 @@
                         android:layout_height="match_parent"
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:gravity="center"
-                        android:textSize="16dp"
+                        style="?android:attr/textAppearance"
                         android:text="@{item.top12}"/>
                 </LinearLayout>
                 <LinearLayout
@@ -148,7 +148,7 @@
                         android:layout_height="match_parent"
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:gravity="center"
-                        android:textSize="16dp"
+                        style="?android:attr/textAppearance"
                         android:text="@{item.bottom12}"/>
                 </LinearLayout>
             </LinearLayout>
@@ -172,7 +172,7 @@
                         android:layout_height="match_parent"
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:gravity="center"
-                        android:textSize="18dp"
+                        style="?android:attr/textAppearance"
                         android:text="@{item.top34}"/>
                 </LinearLayout>
                 <LinearLayout
@@ -186,7 +186,7 @@
                         android:layout_height="match_parent"
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:gravity="center"
-                        android:textSize="18dp"
+                        style="?android:attr/textAppearance"
                         android:text="@{item.bottom34}"/>
                 </LinearLayout>
             </LinearLayout>
