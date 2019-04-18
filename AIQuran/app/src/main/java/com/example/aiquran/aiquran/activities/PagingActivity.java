@@ -23,7 +23,7 @@ import com.example.aiquran.aiquran.models.Book;
 
 import java.util.ArrayList;
 
-public class PagingActivity extends AppCompatActivity {
+public class PagingActivity extends AppCompatActivity implements SlidePagerAdapter.ItemViewCallBack {
 
     private ViewPager viewPager;
     private SlidePagerAdapter adapter;
@@ -98,6 +98,7 @@ public class PagingActivity extends AppCompatActivity {
         initBook();
         viewPager = findViewById(R.id.view_page_paging);
         adapter = new SlidePagerAdapter(this, book);
+        adapter.setCallBack(this);
         viewPager.setAdapter(adapter);
         imgPrev = findViewById(R.id.img_Previous);
         imgNext = findViewById(R.id.img_Next);
@@ -169,6 +170,23 @@ public class PagingActivity extends AppCompatActivity {
         TextView secondStage = mView.findViewById(R.id.txt_SecondStage);
         builder.setView(mView);
 
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    @Override
+    public void onClick(int position) {
+        onClickText(position);
+    }
+
+    private void onClickText(int position) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        View mView = getLayoutInflater().inflate(R.layout.message_dialog, null);
+        TextView txtMessage1 = mView.findViewById(R.id.txt_message1);
+        TextView txtMessage2 = mView.findViewById(R.id.txt_message2);
+        txtMessage1.setText(book.getPages().get(position).getDescribe());
+        builder.setView(mView);
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }

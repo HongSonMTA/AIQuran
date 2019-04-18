@@ -7,9 +7,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:src="@drawable/lo_suoi" />
+        android:src="@drawable/background_audio" />
 
     <RelativeLayout
+        android:id="@+id/action_bar_audio"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize">
 
@@ -27,7 +28,24 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:src="@drawable/more" />
+            android:src="@drawable/ic_more_vert_black_24dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/body_audio"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/action_bar_audio"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Message"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:textColor="@color/colorWhite" />
     </RelativeLayout>
 
 </RelativeLayout>

@@ -17,8 +17,13 @@ public class SlidePagerAdapter extends PagerAdapter {
     private Context context;
     private LayoutInflater inflater;
     private Book book ;
+    private  ItemViewCallBack callBack;
 
-    public SlidePagerAdapter(Context context,Book book) {
+    public void setCallBack(ItemViewCallBack callBack) {
+        this.callBack = callBack;
+    }
+
+    public SlidePagerAdapter(Context context, Book book) {
         this.context = context;
         this.book=book;
     }
@@ -35,11 +40,19 @@ public class SlidePagerAdapter extends PagerAdapter {
 
     @NonNull
     @Override
-    public Object instantiateItem(@NonNull ViewGroup container, int position) {
+    public Object instantiateItem(@NonNull ViewGroup container, final int position) {
         inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.item_page, container, false);
         TextView txtContentOne = view.findViewById(R.id.txt_contentOne);
         TextView txtDecribe = view.findViewById(R.id.txt_describe);
+        txtDecribe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(callBack!=null){
+                    callBack.onClick(position);
+                }
+            }
+        });
         TextView txtContentTwo = view.findViewById(R.id.txt_contentTwo);
         txtContentOne.setText(book.getPages().get(position).getContentOne());
         txtDecribe.setText(book.getPages().get(position).getDescribe());
@@ -51,5 +64,9 @@ public class SlidePagerAdapter extends PagerAdapter {
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
         container.removeView((LinearLayout) object);
+    }
+
+    public interface ItemViewCallBack {
+        void onClick(int position);
     }
 }

@@ -130,10 +130,25 @@ public class ScrollActivity extends AppCompatActivity implements ScrollAdapter.I
 
     @Override
     public void onClick(int position, View view) {
-        PopupMenu popupMenu = new PopupMenu(this, view);
-        popupMenu.getMenuInflater().inflate(R.menu.display_text_menu, popupMenu.getMenu());
-        popupMenu.getMenu().add(book.getPages().get(position).getDescribe());
-        popupMenu.show();
+//        PopupMenu popupMenu = new PopupMenu(this, view);
+//        popupMenu.getMenuInflater().inflate(R.menu.display_text_menu, popupMenu.getMenu());
+//        popupMenu.getMenu().add(book.getPages().get(position).getDescribe());
+//        popupMenu.show();
+
+        onClickText(position);
+    }
+
+
+    private void onClickText(int position) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        View mView = getLayoutInflater().inflate(R.layout.message_dialog, null);
+        TextView txtMessage1 = mView.findViewById(R.id.txt_message1);
+        TextView txtMessage2 = mView.findViewById(R.id.txt_message2);
+        txtMessage1.setText(book.getPages().get(position).getDescribe());
+        builder.setView(mView);
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
     private void dialogGoto() {
