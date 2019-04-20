@@ -9,7 +9,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.text.InputType;
 import android.util.Log;
@@ -21,9 +20,13 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.example.aiquran.aiquran.R;
+import com.example.aiquran.aiquran.adapters.ColorAdapter;
 import com.example.aiquran.aiquran.adapters.ScrollAdapter;
 import com.example.aiquran.aiquran.databinding.ActivityScrollingBinding;
 import com.example.aiquran.aiquran.models.Book;
+import com.example.aiquran.aiquran.models.MyColor;
+
+import java.util.ArrayList;
 
 public class ScrollActivity extends AppCompatActivity implements ScrollAdapter.ItemViewActionCallBack {
     private ActivityScrollingBinding binding;
@@ -106,9 +109,12 @@ public class ScrollActivity extends AppCompatActivity implements ScrollAdapter.I
                 break;
             }
             case R.id.turn_night: {
+                Intent downloadInten = new Intent(this, ActivityDownloadAudio.class);
+                startActivity(downloadInten);
                 break;
             }
             case R.id.turn_word: {
+                dialogSelectColor();
                 break;
             }
             case R.id.translation: {
@@ -126,6 +132,37 @@ public class ScrollActivity extends AppCompatActivity implements ScrollAdapter.I
             }
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void dialogSelectColor() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Choose Theme");
+        View view = getLayoutInflater().inflate(R.layout.list_color, null);
+        RecyclerView rcv_listColor = view.findViewById(R.id.rcv_list_color);
+        ArrayList<MyColor> myColors = new ArrayList<>();
+        myColors.add(new MyColor("Red", "#FF0000"));
+        myColors.add(new MyColor("Pink", "#FFC0CB"));
+        myColors.add(new MyColor("Orange", "#FFA500"));
+        myColors.add(new MyColor("Tomato", "#FF6347"));
+        myColors.add(new MyColor("Yellow", "#FFFF00"));
+        myColors.add(new MyColor("Blue", "#0000FF"));
+        myColors.add(new MyColor("Green", "#008000"));
+        myColors.add(new MyColor("Violet", "#EE82EE"));
+        myColors.add(new MyColor("Cyan", "#00FFFF"));
+
+        ColorAdapter colorAdapter = new ColorAdapter(myColors, builder.getContext());
+        rcv_listColor.setAdapter(colorAdapter);
+        builder.setView(view);
+
+        builder.setNegativeButton("Cancle", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     @Override

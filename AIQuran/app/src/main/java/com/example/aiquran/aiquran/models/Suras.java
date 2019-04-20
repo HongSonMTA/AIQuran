@@ -6,11 +6,15 @@ public class Suras implements Serializable {
     private String id;
     private String originalWords;
     private  String translationWords;
+    private boolean isDownloadSelected;
+
+
 
     public Suras(String id, String originalWords, String translationWords) {
         this.id = id;
         this.originalWords = originalWords;
         this.translationWords = translationWords;
+        this.isDownloadSelected=false;
     }
 
     public String getId() {
@@ -35,5 +39,12 @@ public class Suras implements Serializable {
 
     public void setTranslationWords(String translationWords) {
         this.translationWords = translationWords;
+    }
+    public boolean isDownloadSelected() {
+        return isDownloadSelected;
+    }
+
+    public void setDownloadSelected(boolean downloadSelected) {
+        isDownloadSelected = downloadSelected;
     }
 }

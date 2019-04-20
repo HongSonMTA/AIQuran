@@ -64,17 +64,17 @@ public class FragmentSuras extends Fragment implements SurasAdapter.ItemViewActi
         super.onCreate(savedInstanceState);
         arraySuras = new ArrayList<>();
         arraySuras.add(new Suras("1","Hello","Xin Chào"));
-        arraySuras.add(new Suras("2","Hello","Xin Chào"));
-        arraySuras.add(new Suras("3","Hello","Xin Chào"));
-        arraySuras.add(new Suras("4","Hello","Xin Chào"));
-        arraySuras.add(new Suras("5","Hello","Xin Chào"));
-        arraySuras.add(new Suras("6","Hello","Xin Chào"));
-        arraySuras.add(new Suras("7","Hello","Xin Chào"));
-        arraySuras.add(new Suras("8","Hello","Xin Chào"));
-        arraySuras.add(new Suras("9","Hello","Xin Chào"));
-        arraySuras.add(new Suras("10","Hello","Xin Chào"));
-        arraySuras.add(new Suras("11","Hello","Xin Chào"));
-        arraySuras.add(new Suras("12","Hello","Xin Chào"));
+        arraySuras.add(new Suras("2","Hello 2","Xin Chào"));
+        arraySuras.add(new Suras("3","Hello 3","Xin Chào"));
+        arraySuras.add(new Suras("4","Hello 4","Xin Chào"));
+        arraySuras.add(new Suras("5","Hello 5","Xin Chào"));
+        arraySuras.add(new Suras("6","Hello 6","Xin Chào"));
+        arraySuras.add(new Suras("7","Hello 7","Xin Chào"));
+        arraySuras.add(new Suras("8","Hello 8","Xin Chào"));
+        arraySuras.add(new Suras("9","Hello 9","Xin Chào"));
+        arraySuras.add(new Suras("10","Hello 10","Xin Chào"));
+        arraySuras.add(new Suras("11","Hello 11","Xin Chào"));
+        arraySuras.add(new Suras("12","Hello 12","Xin Chào"));
     }
 
     @Override

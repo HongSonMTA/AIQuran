@@ -55,7 +55,7 @@ public class SettingActivity extends AppCompatActivity implements ColorPickerDia
 			break;
 		case DIALOG_ID:
 			
-			Toast.makeText(SettingActivity.this, "Selected Color: " + colorToHexString(color), Toast.LENGTH_SHORT).show();
+			Toast.makeText(SettingActivity.this, "Selected MyColor: " + colorToHexString(color), Toast.LENGTH_SHORT).show();
 			break;
 		}
 		
@@ -102,7 +102,7 @@ public class SettingActivity extends AppCompatActivity implements ColorPickerDia
 				public void onShowColorPickerDialog(String title, int currentColor) {
 
 					ColorPickerDialogFragment dialog = ColorPickerDialogFragment
-							.newInstance(PREFERENCE_DIALOG_FONT_COLOR, "Font Color", null, currentColor, false);
+							.newInstance(PREFERENCE_DIALOG_FONT_COLOR, "Font MyColor", null, currentColor, false);
 
 					dialog.setStyle(DialogFragment.STYLE_NORMAL, R.style.LightPickerDialogTheme);
 				    dialog.show(getFragmentManager(), "pre_dialog");					
@@ -115,7 +115,7 @@ public class SettingActivity extends AppCompatActivity implements ColorPickerDia
 					public void onShowColorPickerDialog(String title, int currentColor) {
 
 					ColorPickerDialogFragment dialog = ColorPickerDialogFragment
-							.newInstance(PREFERENCE_DIALOG_TEXT_COLOR, "Text Stroke Color", null, currentColor, false);
+							.newInstance(PREFERENCE_DIALOG_TEXT_COLOR, "Text Stroke MyColor", null, currentColor, false);
 
 					dialog.setStyle(DialogFragment.STYLE_NORMAL, R.style.LightPickerDialogTheme);
 					dialog.show(getFragmentManager(), "pre_dialog");
