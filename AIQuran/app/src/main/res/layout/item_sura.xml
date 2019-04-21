@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorBlack"
-            style="?attr/actionBarSize"
+            style="?android:attr/textAppearance"
             android:textSize="25dp"
             android:layout_marginHorizontal="10dp"
             android:text="@{item.id}"/>
@@ -27,7 +27,7 @@
             android:layout_weight="2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="?attr/actionBarSize"
+            style="?android:attr/textAppearance"
             android:textSize="25dp"
             android:textColor="@color/colorBlack"
             android:text="@{item.originalWords}"/>
@@ -44,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorBlack"
-            style="?attr/actionBarSize"
+            style="?android:attr/textAppearance"
             android:textSize="25dp"
             android:text="@{item.translationWords}"/>
 

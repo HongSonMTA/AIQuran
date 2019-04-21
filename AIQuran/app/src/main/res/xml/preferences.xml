@@ -30,13 +30,10 @@
             android:key="updateNotificationSetting"
             android:summary="@string/CheckThis"
             android:title="@string/GraphicalBackground" />
-        <ListPreference
-            android:defaultValue="1"
-            android:entries="@array/appSettingsLanguageListArray"
-            android:entryValues="@array/appSettingsLanguageListValues"
-            android:key="languageSettings"
-            android:summary="@string/ForAll"
-            android:title="@string/ChooseThems"/>.
+        <Preference
+            android:title="@string/ChooseThems"
+            android:key="ChooseThems"
+            android:summary="@string/ForAll" />
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -85,12 +82,11 @@
             android:key="audioStorage"
             android:summary="@string/ChooseStorage"
             android:title="@string/AudioStorage" />
-        <ListPreference
-            android:defaultValue="1"
-            android:entries="@array/appSettingsLanguageListArray"
-            android:entryValues="@array/appSettingsLanguageListValues"
-            android:key="DownloadAudio"
-            android:title="@string/DownloadAudio" />
+
+        <Preference
+            android:title="@string/DownloadAudio"
+            android:key="DownloadAudio" />
+
         <SwitchPreference
             android:defaultValue="true"
             android:key="updateNotificationSetting"
@@ -118,12 +114,11 @@
             android:key="ChooseTranslation"
             android:summary="@string/ChooseTafsir"
             android:title="@string/ChooseTafsirTranlation" />
-        <ListPreference
-            android:defaultValue="1"
-            android:entries="@array/appSettingsLanguageListArray"
-            android:entryValues="@array/appSettingsLanguageListValues"
-            android:key="DownloadTafsir"
-            android:title="@string/DownloadTafsir" />
+
+        <Preference
+            android:title="@string/DownloadTafsir"
+            android:key="DownloadTafsir" />
+
         <ListPreference
             android:defaultValue="1"
             android:entries="@array/appTafsirTranslationFontSizeArray"
