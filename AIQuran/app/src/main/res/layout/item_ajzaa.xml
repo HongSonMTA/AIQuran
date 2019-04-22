@@ -30,7 +30,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    android:textStyle="bold"
                     style="?android:attr/textAppearanceLarge"
                     android:text="@{item.joza}"/>
             </LinearLayout>

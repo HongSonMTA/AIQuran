@@ -40,11 +40,11 @@
         android:title="Holy Quran Font">
         <ListPreference
             android:defaultValue="1"
-            android:entries="@array/appSettingsLanguageListArray"
-            android:entryValues="@array/appSettingsLanguageListValues"
-            android:key="languageSettings"
-            android:summary="@string/FontSize"
-            android:title="@string/SetFont"/>
+            android:entries="@array/appTafsirTranslationFontSizeArray"
+            android:entryValues="@array/appTafsirTranslationFontSizeValue"
+            android:key="FontSize"
+            android:summary="@string/SetFont"
+            android:title="@string/FontSize"/>
         <com.github.danielnilsson9.colorpickerview.preference.ColorPreference
             android:defaultValue="0xFF000000"
             android:key="FontColor"

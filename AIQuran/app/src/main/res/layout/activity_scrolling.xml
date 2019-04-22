@@ -9,7 +9,7 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:background="#50E0E0E0">
+            android:background="#99E3F2FD">
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -20,14 +20,14 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:gravity="bottom|right"
-                    android:textSize="20dp"
+                    style="?android:attr/textAppearanceLarge"
                     android:textStyle="bold"
                     android:text="222 Page" />
 
             </RelativeLayout>
         </LinearLayout>
         <LinearLayout
-            android:layout_weight="7"
+            android:layout_weight="9"
             android:layout_width="0dp"
             android:layout_height="match_parent">
             <android.support.v7.widget.RecyclerView
@@ -41,7 +41,7 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:background="#50E0E0E0">
+            android:background="#99E3F2FD">
             <com.example.aiquran.aiquran.views.VerticalSeekBar
                 android:id="@+id/seek_bar"
                 android:layout_width="wrap_content"

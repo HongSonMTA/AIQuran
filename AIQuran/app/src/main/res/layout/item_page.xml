@@ -22,7 +22,7 @@
                     android:layout_height="wrap_content"
                     android:text="Content One"
                     android:textAppearance="?android:textAppearanceLarge"
-                    android:textSize="20dp" />
+                    style="?android:attr/textAppearanceLarge" />
 
                 <TextView
                     android:id="@+id/txt_describe"
@@ -31,7 +31,7 @@
                     android:text="Describe"
                     android:textAppearance="?android:textAppearanceLarge"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="20dp" />
+                    style="?android:attr/textAppearanceLarge" />
 
                 <TextView
                     android:id="@+id/txt_contentTwo"
@@ -39,7 +39,7 @@
                     android:layout_height="wrap_content"
                     android:text="Content Two"
                     android:textAppearance="?android:textAppearanceLarge"
-                    android:textSize="20dp" />
+                    style="?android:attr/textAppearanceLarge" />
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

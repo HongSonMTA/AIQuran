@@ -6,6 +6,7 @@ import android.databinding.DataBindingUtil;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 
+import android.net.Uri;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -42,7 +43,6 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         binding.viewPage.addOnPageChangeListener(this);
         binding.tablayout.setupWithViewPager(binding.viewPage);
        createBottomSheet();
-        //createBottomSheetBehavior();
     }
 
     @Override
@@ -65,6 +65,8 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
                 break;
             }
             case R.id.help: {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com"));
+                startActivity(intent);
                 break;
             }
             case R.id.about: {
@@ -73,8 +75,6 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
             }
             case R.id.share: {
                 startIntentSend();
-               // bottomSheetDialog.show();
-
                 break;
             }
             case R.id.reading_position: {

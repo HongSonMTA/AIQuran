@@ -22,27 +22,27 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:textSize="25dp"
+                    style="?android:attr/textAppearanceLarge"
                     android:textColor="@color/colorBlack"
                     android:text="Surat: "/>
                 <TextView
                     android:id="@+id/txt_surat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="25dp"
+                    style="?android:attr/textAppearanceLarge"
                     android:textColor="@color/colorBlack"
                     android:text="@{item.nameSurat}"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="25dp"
+                    style="?android:attr/textAppearanceLarge"
                     android:textColor="@color/colorBlack"
                     android:text=" ,Ayah: "/>
                 <TextView
                     android:id="@+id/txt_ayah"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="25dp"
+                    style="?android:attr/textAppearanceLarge"
                     android:textColor="@color/colorBlack"
                     app:score="@{item.ayah}"/>
             </LinearLayout>

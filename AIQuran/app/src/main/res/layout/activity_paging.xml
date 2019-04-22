@@ -14,13 +14,20 @@
 
     </android.support.v4.view.ViewPager>
 
-    <com.example.aiquran.aiquran.views.VerticalTextView
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:gravity="center_horizontal"
-        android:text="Name of book"
-        android:textColor="@color/colorOrange"
-        android:textSize="16dp"/>
+        android:layout_height="match_parent">
+
+        <com.example.aiquran.aiquran.views.VerticalTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="bottom|right"
+            android:text="Name of book"
+            android:textColor="@color/colorOrange"
+            style="?android:attr/textAppearanceLarge"/>
+
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/relativeBottom"
@@ -45,7 +52,8 @@
             android:layout_centerHorizontal="true"
             android:text="1:10"
             android:textColor="@color/colorWhite"
-            android:textSize="20dp" />
+            style="?android:attr/textAppearanceLarge"
+             />
 
         <ImageView
             android:id="@+id/img_Next"
