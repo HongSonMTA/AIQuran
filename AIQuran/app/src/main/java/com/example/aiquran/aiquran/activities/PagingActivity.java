@@ -10,6 +10,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,6 +20,7 @@ import android.widget.TextView;
 
 import com.example.aiquran.aiquran.R;
 import com.example.aiquran.aiquran.adapters.SlidePagerAdapter;
+import com.example.aiquran.aiquran.data.FileManager;
 import com.example.aiquran.aiquran.models.Book;
 
 import java.util.ArrayList;
@@ -31,6 +33,7 @@ public class PagingActivity extends AppCompatActivity implements SlidePagerAdapt
     private ImageView imgPrev;
     private ImageView imgNext;
     private Book book;
+    private FileManager fileManager = new FileManager(this);
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,7 +41,21 @@ public class PagingActivity extends AppCompatActivity implements SlidePagerAdapt
         setContentView(R.layout.activity_paging);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Paging");
+        // int  lines = fileManager.getQuranSuraContents(2);
+        //Log.d("Number of line : " ,lines+"");
         initSidePage();
+    }
+
+
+    private void initBook() {
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        int idBook = bundle.getInt("ID_SURAS");
+        Log.i("ID_SURAS ", idBook + "");
+        String nameOfBook = bundle.getString("SURAS_NAME");
+        Log.i("SURAS_NAME ", nameOfBook);
+        ArrayList<String> pages = fileManager.getQuranSuraContents(idBook);
+        book = new Book(nameOfBook, pages);
     }
 
     @Override
@@ -90,9 +107,6 @@ public class PagingActivity extends AppCompatActivity implements SlidePagerAdapt
         return super.onOptionsItemSelected(item);
     }
 
-    private void initBook() {
-        book = new Book();
-    }
 
     private void initSidePage() {
         initBook();
