@@ -13,8 +13,9 @@ import android.view.Window;
 import android.widget.ImageView;
 
 import com.example.aiquran.aiquran.R;
+import com.example.aiquran.aiquran.base.BaseActivity;
 
-public class AudioActivity extends AppCompatActivity implements View.OnClickListener {
+public class AudioActivity extends BaseActivity implements View.OnClickListener {
 
     ImageView imgMore;
 

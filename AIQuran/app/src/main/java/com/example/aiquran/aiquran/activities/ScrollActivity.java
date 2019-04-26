@@ -8,7 +8,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.text.InputType;
 import android.util.Log;
@@ -20,15 +19,12 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.example.aiquran.aiquran.R;
-import com.example.aiquran.aiquran.adapters.ColorAdapter;
 import com.example.aiquran.aiquran.adapters.ScrollAdapter;
+import com.example.aiquran.aiquran.base.BaseActivity;
 import com.example.aiquran.aiquran.databinding.ActivityScrollingBinding;
 import com.example.aiquran.aiquran.models.Book;
-import com.example.aiquran.aiquran.models.MyColor;
 
-import java.util.ArrayList;
-
-public class ScrollActivity extends AppCompatActivity implements ScrollAdapter.ItemViewActionCallBack {
+public class ScrollActivity extends BaseActivity implements ScrollAdapter.ItemViewActionCallBack {
     private ActivityScrollingBinding binding;
     private ScrollAdapter adapter;
     private Book book;

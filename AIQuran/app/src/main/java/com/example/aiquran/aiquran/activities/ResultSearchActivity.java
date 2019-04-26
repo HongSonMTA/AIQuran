@@ -7,9 +7,10 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.aiquran.aiquran.R;
+import com.example.aiquran.aiquran.base.BaseActivity;
 import com.example.aiquran.aiquran.databinding.ActivityResultSearchBinding;
 
-public class ResultSearchActivity extends AppCompatActivity {
+public class ResultSearchActivity extends BaseActivity {
     private ActivityResultSearchBinding binding;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

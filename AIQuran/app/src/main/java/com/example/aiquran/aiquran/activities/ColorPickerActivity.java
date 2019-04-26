@@ -1,10 +1,5 @@
 package com.example.aiquran.aiquran.activities;
 
-import com.example.aiquran.aiquran.R;
-import com.github.danielnilsson9.colorpickerview.view.ColorPanelView;
-import com.github.danielnilsson9.colorpickerview.view.ColorPickerView;
-import com.github.danielnilsson9.colorpickerview.view.ColorPickerView.OnColorChangedListener;
-import android.app.Activity;
 import android.content.SharedPreferences;
 import android.graphics.PixelFormat;
 import android.os.Bundle;
@@ -13,7 +8,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-public class ColorPickerActivity extends Activity implements OnColorChangedListener, View.OnClickListener {
+import com.example.aiquran.aiquran.R;
+import com.example.aiquran.aiquran.base.BaseActivity;
+import com.github.danielnilsson9.colorpickerview.view.ColorPanelView;
+import com.github.danielnilsson9.colorpickerview.view.ColorPickerView;
+import com.github.danielnilsson9.colorpickerview.view.ColorPickerView.OnColorChangedListener;
+
+public class ColorPickerActivity extends BaseActivity implements OnColorChangedListener, View.OnClickListener {
 
 	private ColorPickerView	mColorPickerView;
 	private ColorPanelView	mOldColorPanelView;

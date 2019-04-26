@@ -12,12 +12,13 @@ import android.view.View;
 
 import com.example.aiquran.aiquran.R;
 import com.example.aiquran.aiquran.adapters.BookMarkAdapter;
+import com.example.aiquran.aiquran.base.BaseActivity;
 import com.example.aiquran.aiquran.databinding.ActivityBookmarkBinding;
 import com.example.aiquran.aiquran.models.BookMark;
 
 import java.util.ArrayList;
 
-public class BookMarkActivity extends AppCompatActivity implements BookMarkAdapter.ItemViewActionCallBack {
+public class BookMarkActivity extends BaseActivity implements BookMarkAdapter.ItemViewActionCallBack {
     private ActivityBookmarkBinding binding;
     private ArrayList<BookMark> arrBookMark;
     private BookMarkAdapter adapter;

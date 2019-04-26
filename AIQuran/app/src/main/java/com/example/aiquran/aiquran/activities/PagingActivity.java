@@ -19,11 +19,12 @@ import android.widget.TextView;
 
 import com.example.aiquran.aiquran.R;
 import com.example.aiquran.aiquran.adapters.SlidePagerAdapter;
+import com.example.aiquran.aiquran.base.BaseActivity;
 import com.example.aiquran.aiquran.models.Book;
 
 import java.util.ArrayList;
 
-public class PagingActivity extends AppCompatActivity implements SlidePagerAdapter.ItemViewCallBack {
+public class PagingActivity extends BaseActivity implements SlidePagerAdapter.ItemViewCallBack {
 
     private ViewPager viewPager;
     private SlidePagerAdapter adapter;

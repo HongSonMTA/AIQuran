@@ -5,17 +5,17 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 
 import com.example.aiquran.aiquran.R;
+import com.example.aiquran.aiquran.base.BaseActivity;
 import com.example.aiquran.aiquran.databinding.ActivitySearchBinding;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchActivity extends AppCompatActivity implements View.OnClickListener {
+public class SearchActivity extends BaseActivity implements View.OnClickListener {
     private ActivitySearchBinding binding;
     private List<String> list = new ArrayList<>();
     @Override

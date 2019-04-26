@@ -5,12 +5,10 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,9 +20,11 @@ import com.example.aiquran.aiquran.activities.ScrollActivity;
 import com.example.aiquran.aiquran.activities.SearchActivity;
 import com.example.aiquran.aiquran.activities.SettingActivity;
 import com.example.aiquran.aiquran.adapters.MyAdapter;
+import com.example.aiquran.aiquran.base.BaseActivity;
 import com.example.aiquran.aiquran.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener {
+public class MainActivity extends BaseActivity implements ViewPager.OnPageChangeListener {
+
     private MyAdapter myAdapter;
     private ActivityMainBinding binding;
     private Dialog dialogAbout;
@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         initView();
     }
@@ -42,6 +43,9 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         binding.viewPage.setAdapter(myAdapter);
         binding.viewPage.addOnPageChangeListener(this);
         binding.tablayout.setupWithViewPager(binding.viewPage);
+        int idBG = getIdBackgroundTab();
+        binding.tablayout.setBackgroundColor(getResources().getColor(idBG));
+
        createBottomSheet();
     }
 
@@ -118,7 +122,6 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         txtCloseAbout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 dialogAbout.dismiss();
             }
         });

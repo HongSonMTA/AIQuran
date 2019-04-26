@@ -10,14 +10,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.aiquran.aiquran.R;
-import com.example.aiquran.aiquran.models.MyColor;
+import com.example.aiquran.aiquran.models.Theme;
 
 import java.util.ArrayList;
 
 public class ColorAdapter extends RecyclerView.Adapter<ColorAdapter.ViewHolder> {
 
-    private ArrayList<MyColor> myColors;
-    private Context context;
+    private ArrayList<Theme> myColors;
     private LayoutInflater inflater;
     private ItemColorCallBack colorCallBack;
 
@@ -25,7 +24,7 @@ public class ColorAdapter extends RecyclerView.Adapter<ColorAdapter.ViewHolder> 
         this.colorCallBack = colorCallBack;
     }
 
-    public ColorAdapter(ArrayList<MyColor> myColors, Context context) {
+    public ColorAdapter(ArrayList<Theme> myColors, Context context) {
         this.myColors = myColors;
         this.inflater = LayoutInflater.from(context);
     }
@@ -40,8 +39,7 @@ public class ColorAdapter extends RecyclerView.Adapter<ColorAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
-        viewHolder.layout.setBackgroundColor(myColors.get(i).getColor());
-        viewHolder.tvNameColor.setText(myColors.get(i).getName());
+        viewHolder.binData(myColors.get(i));
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,8 +61,13 @@ public class ColorAdapter extends RecyclerView.Adapter<ColorAdapter.ViewHolder> 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+        }
+        public void  binData(Theme theme){
             layout = itemView.findViewById(R.id.layout_item_list_color);
             tvNameColor = itemView.findViewById(R.id.tv_nameColor);
+            int color = itemView.getContext().getResources().getColor(theme.getPrimaryColor());
+            layout.setBackgroundColor(color);
+            tvNameColor.setText(theme.getName());
         }
     }
 

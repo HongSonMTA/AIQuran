@@ -13,12 +13,13 @@ import android.widget.TextView;
 
 import com.example.aiquran.aiquran.R;
 import com.example.aiquran.aiquran.adapters.DownloadAudioAdapter;
+import com.example.aiquran.aiquran.base.BaseActivity;
 import com.example.aiquran.aiquran.models.Book;
 import com.example.aiquran.aiquran.models.Suras;
 
 import java.util.ArrayList;
 
-public class ActivityDownloadAudio extends AppCompatActivity implements DownloadAudioAdapter.ItemViewActionCallBack {
+public class ActivityDownloadAudio extends BaseActivity implements DownloadAudioAdapter.ItemViewActionCallBack {
 
     private RecyclerView rcDownload;
     private DownloadAudioAdapter audioAdapter;
