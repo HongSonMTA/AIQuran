@@ -30,7 +30,7 @@ public class SlidePagerAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return book.getPages().size();
+        return book.getPagesString().size();
     }
 
     @Override
@@ -45,6 +45,12 @@ public class SlidePagerAdapter extends PagerAdapter {
         View view = inflater.inflate(R.layout.item_page, container, false);
         TextView txtContentOne = view.findViewById(R.id.txt_contentOne);
         TextView txtDecribe = view.findViewById(R.id.txt_describe);
+        TextView txtContentTwo = view.findViewById(R.id.txt_contentTwo);
+
+        txtContentOne.setText(book.getPagesString().get(position));
+
+        txtDecribe.setText("Decribe");
+        txtContentTwo.setText("Content two");
         txtDecribe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,10 +59,6 @@ public class SlidePagerAdapter extends PagerAdapter {
                 }
             }
         });
-        TextView txtContentTwo = view.findViewById(R.id.txt_contentTwo);
-        txtContentOne.setText(book.getPages().get(position).getContentOne());
-        txtDecribe.setText(book.getPages().get(position).getDescribe());
-        txtContentTwo.setText(book.getPages().get(position).getContentTwo());
         container.addView(view);
         return view;
     }
