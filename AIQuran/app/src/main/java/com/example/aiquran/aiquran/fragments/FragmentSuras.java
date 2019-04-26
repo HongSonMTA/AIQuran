@@ -31,11 +31,12 @@ import java.util.ArrayList;
 
 public class FragmentSuras extends Fragment implements SurasAdapter.ItemViewActionCallBack {
     private static FragmentSuras instance;
-    private ArrayList<Suras> arraySuras;
+
     private FragmentSurasBinding binding;
     private SurasAdapter adapter;
     private String[] listMenu = new String[]{"Scrolling", "Paging", "AI-Quran TV"};
     private SurasNames surasNames = new SurasNames();
+    private ArrayList<Suras> arraySuras;
 
     public static FragmentSuras getInstance() {
         if (instance == null) {

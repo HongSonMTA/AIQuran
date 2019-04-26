@@ -29,6 +29,8 @@ import com.example.aiquran.aiquran.adapters.AjazzAdapter;
 import com.example.aiquran.aiquran.adapters.SurasAdapter;
 import com.example.aiquran.aiquran.databinding.FragmentAjzaaBinding;
 import com.example.aiquran.aiquran.models.Ajazz;
+import com.example.aiquran.aiquran.models.Suras;
+import com.example.aiquran.aiquran.models.SurasNames;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +40,9 @@ public class FragmentAjzaa extends Fragment implements AjazzAdapter.ItemViewActi
     private FragmentAjzaaBinding binding;
     private ArrayList<Ajazz> arrAjazz;
     private AjazzAdapter adapter;
+    private SurasNames surasNames = new SurasNames();
+    private ArrayList<Suras> arraySuras;
+
     private String[] listMenu = new String[]{"Scrolling", "Paging", "AI-Quran TV"};
 
     public static FragmentAjzaa getInstance() {
@@ -62,6 +67,7 @@ public class FragmentAjzaa extends Fragment implements AjazzAdapter.ItemViewActi
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initSuras();
         arrAjazz = new ArrayList<>();
         arrAjazz.add(new Ajazz("Joza 1", "Hezb 1", "Hezb 2", "1/4", "1/2", "3/4", "1/4", "1/2", "3/4"));
         arrAjazz.add(new Ajazz("Joza 2", "Hezb 3", "Hezb 4", "1/4", "1/2", "3/4", "1/4", "1/2", "3/4"));
@@ -74,8 +80,14 @@ public class FragmentAjzaa extends Fragment implements AjazzAdapter.ItemViewActi
         arrAjazz.add(new Ajazz("Joza 9", "Hezb 17", "Hezb 18", "1/4", "1/2", "3/4", "1/4", "1/2", "3/4"));
     }
 
+    private void initSuras() {
+        arraySuras = new ArrayList<>();
+        for (int i = 0; i < 114; i++) {
+            arraySuras.add(new Suras(i + 1 + "", surasNames.getSuraNameEn(i), surasNames.getSurasNameAr(i)));
+        }
+    }
     @Override
-    public void onClick(int position) {
+    public void onClick(final int position) {
         TextView txt = new TextView(getContext());
         txt.setText("Choose the suitable method to explore the Holy Quran");
         txt.setPadding(20, 20, 20, 20);
@@ -109,6 +121,8 @@ public class FragmentAjzaa extends Fragment implements AjazzAdapter.ItemViewActi
                         intent = new Intent(getContext(), AudioActivity.class);
                         break;
                 }
+                intent.putExtra("ID_SURAS", position+1);
+                intent.putExtra("SURAS_NAME",arraySuras.get(position).getOriginalWords());
                 startActivity(intent);
             }
         });
