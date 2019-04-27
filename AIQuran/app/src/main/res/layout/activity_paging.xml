@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:layout_marginLeft="26dp"
         android:layout_marginRight="26dp"
-        android:layout_above="@+id/relativeBottom">
+        android:layout_above="@+id/relativeBottomPaging">
 
     </android.support.v4.view.ViewPager>
 
@@ -19,6 +19,7 @@
         android:layout_height="match_parent">
 
         <com.example.aiquran.aiquran.views.VerticalTextView
+            android:id="@+id/tvNameOfBookPaging"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -30,7 +31,7 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/relativeBottom"
+        android:id="@+id/relativeBottomPaging"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

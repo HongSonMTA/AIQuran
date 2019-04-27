@@ -51,26 +51,32 @@ public class BookMarkActivity extends BaseActivity implements BookMarkAdapter.It
 
     }
 
-    private void showAttention(int position) {
+    private void showAttention(final int position) {
         final View mView = getLayoutInflater().inflate(R.layout.checkbox, null);
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(this);
         mBuilder.setTitle("Attention");
         mBuilder.setMessage("Choose the suitable method to explore the Holy Quran");
         mBuilder.setView(mView);
+        final Intent[] intent = new Intent[1];
+        intent[0] = new Intent(BookMarkActivity.this, ScrollActivity.class);
+        intent[0].putExtra("ID_SURAS", position+1);
+        intent[0].putExtra("SURAS_NAME",arrBookMark.get(position).getNameSurat());
         mBuilder.setPositiveButton("SCROLLING", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(BookMarkActivity.this, ScrollActivity.class);
-                startActivity(intent);
+                 intent[0] = new Intent(BookMarkActivity.this, ScrollActivity.class);
+                startActivity(intent[0]);
             }
         });
         mBuilder.setNegativeButton("PAGING", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(BookMarkActivity.this, PagingActivity.class);
-                startActivity(intent);
+                 intent[0] = new Intent(BookMarkActivity.this, PagingActivity.class);
+                startActivity(intent[0]);
             }
         });
+
+
         AlertDialog alertDialog = mBuilder.create();
         alertDialog.show();
     }

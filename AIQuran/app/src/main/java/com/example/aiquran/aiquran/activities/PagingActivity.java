@@ -2,6 +2,7 @@ package com.example.aiquran.aiquran.activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
@@ -10,13 +11,19 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ClickableSpan;
+import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.aiquran.aiquran.R;
 import com.example.aiquran.aiquran.adapters.SlidePagerAdapter;
@@ -30,10 +37,14 @@ public class PagingActivity extends BaseActivity implements SlidePagerAdapter.It
 
     private ViewPager viewPager;
     private SlidePagerAdapter adapter;
+    private RelativeLayout bottomPaging;
+    private TextView tvNameOfBook;
     private TextView txtNumofPage;
     private ImageView imgPrev;
     private ImageView imgNext;
     private Book book;
+
+    private String currentPage= "1";
     private FileManager fileManager = new FileManager(this);
 
     @Override
@@ -42,8 +53,6 @@ public class PagingActivity extends BaseActivity implements SlidePagerAdapter.It
         setContentView(R.layout.activity_paging);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Paging");
-        // int  lines = fileManager.getQuranSuraContents(2);
-        //Log.d("Number of line : " ,lines+"");
         initSidePage();
     }
 
@@ -57,6 +66,47 @@ public class PagingActivity extends BaseActivity implements SlidePagerAdapter.It
         Log.i("SURAS_NAME ", nameOfBook);
         ArrayList<String> pages = fileManager.getQuranSuraContents(idBook);
         book = new Book(nameOfBook, pages);
+    }
+
+    private void initSidePage() {
+        initBook();
+        viewPager = findViewById(R.id.view_page_paging);
+        adapter = new SlidePagerAdapter(this, book);
+        adapter.setCallBack(this);
+        viewPager.setAdapter(adapter);
+        bottomPaging = findViewById(R.id.relativeBottomPaging);
+        bottomPaging.setBackgroundColor(getResources().getColor(getIdBackgroundTab()));
+        imgPrev = findViewById(R.id.img_Previous);
+        imgNext = findViewById(R.id.img_Next);
+        txtNumofPage = findViewById(R.id.txt_numofpage);
+        tvNameOfBook = findViewById(R.id.tvNameOfBookPaging);
+
+        imgNext.setOnClickListener(onClick);
+        imgPrev.setOnClickListener(onClick);
+
+        tvNameOfBook.setText(book.getName());
+        int pages = book.getPagesString().size();
+        txtNumofPage.setText(currentPage+":"+Integer.toString(pages));
+
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int i, float v, int i1) {
+                // String page = i+1+":"+adapter.getCount();
+                currentPage = i+1+":"+adapter.getCount();
+                txtNumofPage.setText(currentPage);
+
+            }
+
+            @Override
+            public void onPageSelected(int i) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int i) {
+
+            }
+        });
     }
 
     @Override
@@ -109,36 +159,7 @@ public class PagingActivity extends BaseActivity implements SlidePagerAdapter.It
     }
 
 
-    private void initSidePage() {
-        initBook();
-        viewPager = findViewById(R.id.view_page_paging);
-        adapter = new SlidePagerAdapter(this, book);
-        adapter.setCallBack(this);
-        viewPager.setAdapter(adapter);
-        imgPrev = findViewById(R.id.img_Previous);
-        imgNext = findViewById(R.id.img_Next);
-        txtNumofPage = findViewById(R.id.txt_numofpage);
 
-        imgNext.setOnClickListener(onClick);
-        imgPrev.setOnClickListener(onClick);
-
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int i, float v, int i1) {
-                txtNumofPage.setText(i + 1 + ":" + adapter.getCount());
-            }
-
-            @Override
-            public void onPageSelected(int i) {
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int i) {
-
-            }
-        });
-    }
 
     View.OnClickListener onClick = new View.OnClickListener() {
         @Override
@@ -146,13 +167,13 @@ public class PagingActivity extends BaseActivity implements SlidePagerAdapter.It
             switch (v.getId()) {
                 case R.id.img_Previous:
                     viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
-                    txtNumofPage.setText(viewPager.getCurrentItem() + 1 + ":" + adapter.getCount());
                     break;
                 case R.id.img_Next:
                     viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
-                    txtNumofPage.setText(viewPager.getCurrentItem() + 1 + ":" + adapter.getCount());
                     break;
             }
+            currentPage = viewPager.getCurrentItem() + 1 + ":" + adapter.getCount();
+            txtNumofPage.setText(currentPage);
         }
     };
 
@@ -200,7 +221,7 @@ public class PagingActivity extends BaseActivity implements SlidePagerAdapter.It
         View mView = getLayoutInflater().inflate(R.layout.message_dialog, null);
         TextView txtMessage1 = mView.findViewById(R.id.txt_message1);
         TextView txtMessage2 = mView.findViewById(R.id.txt_message2);
-        txtMessage1.setText(book.getPages().get(position).getDescribe());
+        //txtMessage1.setText(book.getPages().get(position).getDescribe());
         builder.setView(mView);
         AlertDialog alertDialog = builder.create();
         alertDialog.show();

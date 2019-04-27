@@ -17,25 +17,41 @@ public class FileManager {
     }
 
     public ArrayList<String> getQuranSuraContents(int id) {
-        int numberOfLine = 0;
+
         ArrayList<String> pages = new ArrayList<>();
-        String fileName = id + ".txt";
+
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("books/");
+        stringBuilder.append(id);
+        stringBuilder.append(".txt");
+        String fileName = stringBuilder.toString();
         BufferedReader reader;
 
         try {
             final InputStream file = mContext.getAssets().open(fileName);
             reader = new BufferedReader(new InputStreamReader(file));
             String line = reader.readLine();
-            numberOfLine++;
+            pages.add(line);
             while (line != null) {
                 line = reader.readLine();
-                pages.add(line);
-                Log.d("StackOverflow", ""+line);
+
+                if(line!=null)
+                {
+                    line=line.trim();
+                    pages.add(line);
+                }
+
+                Log.d("StackOverflow", "" + line);
 
             }
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
         return pages;
+    }
+
+    public ArrayList<String> getKeyWordsPage(int page, int idBook){
+        ArrayList<String > keyWords = new ArrayList<>();
+        return keyWords;
     }
 }

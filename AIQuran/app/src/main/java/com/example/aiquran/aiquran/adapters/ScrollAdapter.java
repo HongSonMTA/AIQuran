@@ -36,7 +36,7 @@ public class ScrollAdapter extends RecyclerView.Adapter<ScrollAdapter.ViewHoder>
 
     @Override
     public void onBindViewHolder(@NonNull ViewHoder viewHoder, final int i) {
-        viewHoder.binData(book.getPages().get(i));
+        viewHoder.binData(book,i);
         viewHoder.binding.txtDescribe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,7 +49,7 @@ public class ScrollAdapter extends RecyclerView.Adapter<ScrollAdapter.ViewHoder>
 
     @Override
     public int getItemCount() {
-        return book.getPages().size();
+        return book.getPagesString().size();
     }
 
     public class ViewHoder extends RecyclerView.ViewHolder{
@@ -58,10 +58,10 @@ public class ScrollAdapter extends RecyclerView.Adapter<ScrollAdapter.ViewHoder>
             super(binding.getRoot());
             this.binding = binding;
         }
-        public void binData(ContentBook contentBook){
-            binding.txtContentOne.setText(contentBook.getContentOne());
-            binding.txtDescribe.setText(contentBook.getDescribe());
-            binding.txtContentTwo.setText(contentBook.getContentTwo());
+        public void binData(Book book1,int page){
+            binding.txtContentOne.setText(book1.getPagesString().get(page));
+            binding.txtDescribe.setText("Descripble");
+            binding.txtContentTwo.setText("Content ...");
         }
     }
     public interface ItemViewActionCallBack {

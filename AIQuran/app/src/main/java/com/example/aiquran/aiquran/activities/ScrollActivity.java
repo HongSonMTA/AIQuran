@@ -21,13 +21,17 @@ import android.widget.TextView;
 import com.example.aiquran.aiquran.R;
 import com.example.aiquran.aiquran.adapters.ScrollAdapter;
 import com.example.aiquran.aiquran.base.BaseActivity;
+import com.example.aiquran.aiquran.data.FileManager;
 import com.example.aiquran.aiquran.databinding.ActivityScrollingBinding;
 import com.example.aiquran.aiquran.models.Book;
+
+import java.util.ArrayList;
 
 public class ScrollActivity extends BaseActivity implements ScrollAdapter.ItemViewActionCallBack {
     private ActivityScrollingBinding binding;
     private ScrollAdapter adapter;
     private Book book;
+    private FileManager fileManager;
     private int overallXScrol = 0;
 
     @Override
@@ -39,12 +43,24 @@ public class ScrollActivity extends BaseActivity implements ScrollAdapter.ItemVi
         initView();
     }
 
+    private void initBook() {
+        fileManager = new FileManager(this);
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        int idBook = bundle.getInt("ID_SURAS");
+        Log.i("ID_SURAS ", idBook + "");
+        String nameOfBook = bundle.getString("SURAS_NAME");
+        Log.i("SURAS_NAME ", nameOfBook);
+        ArrayList<String> pages = fileManager.getQuranSuraContents(idBook);
+        book = new Book(nameOfBook, pages);
+    }
+
     private void initView() {
-        book = new Book();
+        initBook();
         adapter = new ScrollAdapter(this, book);
         binding.lvContentBook.setAdapter(adapter);
         adapter.setCallBack(this);
-        binding.seekBar.setMax(book.getPages().size());
+        binding.seekBar.setMax(book.getPagesString().size());
         binding.lvContentBook.setOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
@@ -139,7 +155,7 @@ public class ScrollActivity extends BaseActivity implements ScrollAdapter.ItemVi
         View mView = getLayoutInflater().inflate(R.layout.message_dialog, null);
         TextView txtMessage1 = mView.findViewById(R.id.txt_message1);
         TextView txtMessage2 = mView.findViewById(R.id.txt_message2);
-        txtMessage1.setText(book.getPages().get(position).getDescribe());
+       // txtMessage1.setText(book.getPages().get(position).getDescribe());
         builder.setView(mView);
         AlertDialog alertDialog = builder.create();
         alertDialog.show();

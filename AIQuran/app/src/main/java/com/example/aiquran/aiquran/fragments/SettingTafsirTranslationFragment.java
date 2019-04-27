@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
-import android.support.v7.preference.Preference;
 
 import com.example.aiquran.aiquran.R;
 import com.example.aiquran.aiquran.activities.ActivityDownloadAudio;
