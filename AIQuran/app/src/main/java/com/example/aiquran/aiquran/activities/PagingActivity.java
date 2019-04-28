@@ -44,7 +44,7 @@ public class PagingActivity extends BaseActivity implements SlidePagerAdapter.It
     private ImageView imgNext;
     private Book book;
 
-    private String currentPage= "1";
+    private String currentPage = "1";
     private FileManager fileManager = new FileManager(this);
 
     @Override
@@ -65,7 +65,7 @@ public class PagingActivity extends BaseActivity implements SlidePagerAdapter.It
         String nameOfBook = bundle.getString("SURAS_NAME");
         Log.i("SURAS_NAME ", nameOfBook);
         ArrayList<String> pages = fileManager.getQuranSuraContents(idBook);
-        book = new Book(nameOfBook, pages);
+        book = new Book(idBook, nameOfBook, pages);
     }
 
     private void initSidePage() {
@@ -86,13 +86,13 @@ public class PagingActivity extends BaseActivity implements SlidePagerAdapter.It
 
         tvNameOfBook.setText(book.getName());
         int pages = book.getPagesString().size();
-        txtNumofPage.setText(currentPage+":"+Integer.toString(pages));
+        txtNumofPage.setText(currentPage + ":" + Integer.toString(pages));
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int i, float v, int i1) {
                 // String page = i+1+":"+adapter.getCount();
-                currentPage = i+1+":"+adapter.getCount();
+                currentPage = i + 1 + ":" + adapter.getCount();
                 txtNumofPage.setText(currentPage);
 
             }
@@ -119,6 +119,18 @@ public class PagingActivity extends BaseActivity implements SlidePagerAdapter.It
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.add_book: {
+                if (!fileManager.isOnBookmark(book.getId())) {
+                    String data = fileManager.loadBookmark();
+                    Log.i("Paging data after ", data);
+
+                    fileManager.saveFile(data + book.getId() + ",");
+                    Toast.makeText(this, "Saved:" + book.getName(), Toast.LENGTH_LONG).show();
+                    data = fileManager.loadBookmark();
+                    Log.i("Paging data before ", data);
+                }else {
+                    Toast.makeText(this, "Book is on bookmark:", Toast.LENGTH_LONG).show();
+                }
+                // Log.i("Paging","Save bookmark");
                 break;
             }
             case R.id.settings: {
@@ -157,8 +169,6 @@ public class PagingActivity extends BaseActivity implements SlidePagerAdapter.It
         }
         return super.onOptionsItemSelected(item);
     }
-
-
 
 
     View.OnClickListener onClick = new View.OnClickListener() {
