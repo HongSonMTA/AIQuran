@@ -1,13 +1,11 @@
 package com.example.aiquran.aiquran.adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
 import android.support.v7.app.AlertDialog;
 import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextPaint;
 import android.text.method.LinkMovementMethod;
@@ -18,10 +16,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.aiquran.aiquran.R;
-import com.example.aiquran.aiquran.activities.PagingActivity;
 import com.example.aiquran.aiquran.models.Book;
 
 import java.util.ArrayList;
@@ -58,10 +54,7 @@ public class SlidePagerAdapter extends PagerAdapter {
         inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.item_page, container, false);
         TextView txtContentOne = view.findViewById(R.id.txt_contentOne);
-        TextView txtDecribe = view.findViewById(R.id.txt_describe);
-        TextView txtContentTwo = view.findViewById(R.id.txt_contentTwo);
 
-        // txtContentOne.setText(book.getPagesString().get(position));
         ArrayList<String> keyWords = new ArrayList<>();
         keyWords.add("Most Gracious");
         keyWords.add("Thou hast bestowed Thy Grace");
@@ -71,16 +64,6 @@ public class SlidePagerAdapter extends PagerAdapter {
         txtContentOne.setText(initSpan(book.getPagesString().get(position),keyWords));
         txtContentOne.setMovementMethod(LinkMovementMethod.getInstance());
 
-//        txtDecribe.setText("Decribe");
-//        txtContentTwo.setText("Content two");
-        txtDecribe.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (callBack != null) {
-                    callBack.onClick(position);
-                }
-            }
-        });
         container.addView(view);
         return view;
     }
@@ -108,7 +91,6 @@ public class SlidePagerAdapter extends PagerAdapter {
 
                     @Override
                     public void onClick(View widget) {
-                      //  Toast.makeText(context,"dfghjkj",Toast.LENGTH_LONG).show();
                         TextView tv = (TextView) widget;
 
                         Spanned s = (Spanned) tv.getText();

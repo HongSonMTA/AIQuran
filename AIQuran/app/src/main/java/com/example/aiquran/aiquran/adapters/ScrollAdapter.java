@@ -51,14 +51,6 @@ public class ScrollAdapter extends RecyclerView.Adapter<ScrollAdapter.ViewHoder>
     @Override
     public void onBindViewHolder(@NonNull ViewHoder viewHoder, final int i) {
         viewHoder.binData(book,i);
-        viewHoder.binding.txtDescribe.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(callBack!= null){
-                    callBack.onClick(i,v);
-                }
-            }
-        });
     }
 
     @Override
@@ -83,9 +75,6 @@ public class ScrollAdapter extends RecyclerView.Adapter<ScrollAdapter.ViewHoder>
             binding.txtContentOne.setText(initSpan(book1.getPagesString().get(page),keyWords));
             binding.txtContentOne.setMovementMethod(LinkMovementMethod.getInstance());
 
-          //  binding.txtContentOne.setText(book1.getPagesString().get(page));
-//            binding.txtDescribe.setText("Descripble");
-//            binding.txtContentTwo.setText("Content ...");
         }
     }
     public interface ItemViewActionCallBack {

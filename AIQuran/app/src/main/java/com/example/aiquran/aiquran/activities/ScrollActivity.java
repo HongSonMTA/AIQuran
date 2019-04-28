@@ -33,7 +33,6 @@ public class ScrollActivity extends BaseActivity implements ScrollAdapter.ItemVi
     private ScrollAdapter adapter;
     private Book book;
     private FileManager fileManager;
-    private int overallXScrol = 0;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,8 +42,6 @@ public class ScrollActivity extends BaseActivity implements ScrollAdapter.ItemVi
         binding = DataBindingUtil.setContentView(this, R.layout.activity_scrolling);
         initView();
     }
-
-
 
     private void initBook() {
         fileManager = new FileManager(this);
