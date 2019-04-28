@@ -7,6 +7,7 @@ public class BookMark implements Serializable {
     private String nameBook;
     private String nameSurat;
     private int ayah;
+    private String nameAll;
     private int id;
 
 
@@ -55,13 +56,12 @@ public class BookMark implements Serializable {
         this.ayah = ayah;
     }
 
-    public ArrayList<BookMark> getBookMarkList() {
-        ArrayList<BookMark> arrBookMark = new ArrayList<>();
-        arrBookMark.add(new BookMark("Hello(144)", "Hello", 144));
-        arrBookMark.add(new BookMark("Hello(133)", "Hello", 133));
-        arrBookMark.add(new BookMark("Hello(244)", "Hello", 244));
-        arrBookMark.add(new BookMark("Hello(133)", "Hello", 133));
-        arrBookMark.add(new BookMark("Hello(122)", "Hello", 122));
-        return arrBookMark;
+    public String getNameAll() {
+        return nameBook + "("+ ayah+")" + nameSurat;
     }
+
+    public void setNameAll(String nameAll) {
+        this.nameAll = nameAll;
+    }
+
 }

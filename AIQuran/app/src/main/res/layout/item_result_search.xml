@@ -23,7 +23,7 @@
                 android:layout_marginTop="10dp"
                 style="?android:attr/textAppearanceLargePopupMenu"
                 android:textColor="@color/colorBlack"
-                android:text="@{item.nameBook}"/>
+                android:text="@{item.nameAll}"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
