@@ -44,6 +44,8 @@ public class ScrollActivity extends BaseActivity implements ScrollAdapter.ItemVi
         initView();
     }
 
+
+
     private void initBook() {
         fileManager = new FileManager(this);
         Intent intent = getIntent();

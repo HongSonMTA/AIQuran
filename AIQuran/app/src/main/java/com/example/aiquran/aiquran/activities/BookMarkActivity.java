@@ -40,19 +40,22 @@ public class BookMarkActivity extends BaseActivity implements BookMarkAdapter.It
     private void getBookmarkSaved() {
         arrBookMark = new ArrayList<>();
         String saved = fileManager.loadBookmark();
-        String[] list = saved.split(",");
-        for (int i = 0; i < list.length; i++) {
-            Log.i("Bookmark saved : " + i + " : ", list[i]);
-            int index = Integer.parseInt(list[i]);
-            for (int j = 0; j < dataManager.getBookMarks().size(); j++) {
-                if ((index) == dataManager.getBookMarks().get(j).getId()) {
-                    arrBookMark.add(dataManager.getBookMarks().get(j));
+        if (saved != null) {
+            String[] list = saved.split(",");
+            for (int i = 0; i < list.length; i++) {
+                Log.i("Bookmark saved : " + i + " : ", list[i]);
+                int index = Integer.parseInt(list[i]);
+                for (int j = 0; j < dataManager.getBookMarks().size(); j++) {
+                    if ((index) == dataManager.getBookMarks().get(j).getId()) {
+                        arrBookMark.add(dataManager.getBookMarks().get(j));
+                    }
                 }
             }
         }
     }
 
     private void initView() {
+
         getBookmarkSaved();
         adapter = new BookMarkAdapter(this, arrBookMark);
         binding.lvBookMark.setAdapter(adapter);
