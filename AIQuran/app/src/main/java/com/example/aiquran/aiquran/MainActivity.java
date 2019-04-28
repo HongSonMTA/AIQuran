@@ -1,12 +1,16 @@
 package com.example.aiquran.aiquran;
 
+import android.Manifest;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.databinding.DataBindingUtil;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -29,13 +33,45 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
     private ActivityMainBinding binding;
     private Dialog dialogAbout;
     private BottomSheetDialog bottomSheetDialog;
+    private String[] LIST_PERMISSION = {
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.INTERNET
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        initView();
+
+        if (checkPermisson()) {
+            initView();
+        }
+    }
+
+
+    private boolean checkPermisson() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            for (String p : LIST_PERMISSION) {
+                if (checkSelfPermission(p) != PackageManager.PERMISSION_GRANTED) {
+                    requestPermissions(LIST_PERMISSION, 0);
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (checkPermisson()) {
+            initView();
+        } else {
+            finish();
+        }
     }
 
     private void initView() {
@@ -46,7 +82,7 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
         int idBG = getIdBackgroundTab();
         binding.tablayout.setBackgroundColor(getResources().getColor(idBG));
 
-       createBottomSheet();
+        createBottomSheet();
     }
 
     @Override

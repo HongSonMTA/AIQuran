@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.aiquran.aiquran.R;
 import com.example.aiquran.aiquran.adapters.ScrollAdapter;
@@ -52,7 +53,7 @@ public class ScrollActivity extends BaseActivity implements ScrollAdapter.ItemVi
         String nameOfBook = bundle.getString("SURAS_NAME");
         Log.i("SURAS_NAME ", nameOfBook);
         ArrayList<String> pages = fileManager.getQuranSuraContents(idBook);
-        book = new Book(nameOfBook, pages);
+        book = new Book(idBook,nameOfBook, pages);
     }
 
     private void initView() {
@@ -106,6 +107,17 @@ public class ScrollActivity extends BaseActivity implements ScrollAdapter.ItemVi
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.add_book: {
+                if (!fileManager.isOnBookmark(book.getId())) {
+                    String data = fileManager.loadBookmark();
+                    Log.i("Paging data after ", data);
+
+                    fileManager.saveFile(data + book.getId() + ",");
+                    Toast.makeText(this, "Saved:" + book.getName(), Toast.LENGTH_LONG).show();
+                    data = fileManager.loadBookmark();
+                    Log.i("Paging data before ", data);
+                }else {
+                    Toast.makeText(this, "Book is on bookmark:", Toast.LENGTH_LONG).show();
+                }
                 break;
             }
             case R.id.settings: {

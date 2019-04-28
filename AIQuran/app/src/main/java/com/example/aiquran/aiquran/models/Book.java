@@ -3,6 +3,7 @@ package com.example.aiquran.aiquran.models;
 import java.util.ArrayList;
 
 public class Book {
+    private int id;
     private String name;
     //private ArrayList<ContentBook> pages;
     private ArrayList<String> pagesString;
@@ -11,14 +12,23 @@ public class Book {
 
 
 
-    public Book(String name, ArrayList<Page> pages,int i) {
+    public Book(String name, ArrayList<Page> pages) {
         this.name = name;
         this.pages = pages;
     }
 
-    public Book(String name, ArrayList<String> pages) {
+    public Book(int id,String name, ArrayList<String> pages) {
+        this.id=id;
         this.name = name;
         this.pagesString = pages;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
     public void setName(String name) {
         this.name = name;
