@@ -25,7 +25,6 @@ public class ResultSearchActivity extends BaseActivity implements ResultSearchAd
     private ResultSearchAdapter adapter;
     private DataManager dataManager = new DataManager();
     private String key;
-    private ProgressDialog progress;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,11 +36,6 @@ public class ResultSearchActivity extends BaseActivity implements ResultSearchAd
     }
     private void initView() {
 
-//        progress=new ProgressDialog(this);
-//        progress.setMessage("Search");
-//        progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-//        progress.show();
-
         Intent intent = getIntent();
         key = intent.getStringExtra("KeySearch");
 
@@ -49,7 +43,6 @@ public class ResultSearchActivity extends BaseActivity implements ResultSearchAd
         adapter = new ResultSearchAdapter(this, arrBookMark, key);
         binding.lvResultSearch.setAdapter(adapter);
         adapter.setCallBack(this);
-        // progress.dismiss();
     }
 
 
@@ -63,22 +56,26 @@ public class ResultSearchActivity extends BaseActivity implements ResultSearchAd
         mBuilder.setTitle("Attention");
         mBuilder.setMessage("Choose the suitable method to explore the Holy Quran");
         mBuilder.setView(mView);
+        final Intent[] intent = new Intent[1];
+        intent[0] = new Intent(ResultSearchActivity.this, ScrollActivity.class);
+
+
         mBuilder.setPositiveButton("SCROLLING", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(ResultSearchActivity.this, ScrollActivity.class);
-                intent.putExtra("ID_SURAS", position+1);
-                intent.putExtra("SURAS_NAME",arrBookMark.get(position).getNameBook());
-                startActivity(intent);
+                intent[0] = new Intent(ResultSearchActivity.this, ScrollActivity.class);
+                intent[0].putExtra("ID_SURAS", arrBookMark.get(position).getId());
+                intent[0].putExtra("SURAS_NAME", arrBookMark.get(position).getNameSurat());
+                startActivity(intent[0]);
             }
         });
         mBuilder.setNegativeButton("PAGING", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(ResultSearchActivity.this, PagingActivity.class);
-                intent.putExtra("ID_SURAS", position+1);
-                intent.putExtra("SURAS_NAME",arrBookMark.get(position).getNameBook());
-                startActivity(intent);
+                intent[0] = new Intent(ResultSearchActivity.this, PagingActivity.class);
+                intent[0].putExtra("ID_SURAS", arrBookMark.get(position).getId());
+                intent[0].putExtra("SURAS_NAME", arrBookMark.get(position).getNameSurat());
+                startActivity(intent[0]);
             }
         });
         AlertDialog alertDialog = mBuilder.create();

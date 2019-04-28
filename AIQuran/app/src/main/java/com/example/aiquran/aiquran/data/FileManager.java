@@ -90,8 +90,8 @@ public class FileManager {
         } else {
             Toast.makeText(mContext, "isExternalStorageReadable : false", Toast.LENGTH_LONG).show();
         }
-        if (line == null)
-            line = "null";
+//        if (line == null)
+//            line = "null";
         return line;
     }
 

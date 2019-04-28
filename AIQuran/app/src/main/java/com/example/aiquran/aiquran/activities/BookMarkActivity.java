@@ -53,13 +53,6 @@ public class BookMarkActivity extends BaseActivity implements BookMarkAdapter.It
     }
 
     private void initView() {
-
-//        arrBookMark = new ArrayList<>();
-//        arrBookMark.add(new BookMark("Hello(144)", "Hello", 144));
-//        arrBookMark.add(new BookMark("Hello(133)", "Hello", 133));
-//        arrBookMark.add(new BookMark("Hello(244)", "Hello", 244));
-//        arrBookMark.add(new BookMark("Hello(133)", "Hello", 133));
-//        arrBookMark.add(new BookMark("Hello(122)", "Hello", 122));
         getBookmarkSaved();
         adapter = new BookMarkAdapter(this, arrBookMark);
         binding.lvBookMark.setAdapter(adapter);
