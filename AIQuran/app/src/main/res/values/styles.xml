@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -29,6 +29,7 @@
         <item name="colorPrimary">@color/primaryColorRed</item>
         <item name="colorPrimaryDark">@color/primaryDarkColorRed</item>
         <item name="colorAccent">@color/secondaryColorRed</item>
+        <item name="android:navigationBarColor" tools:ignore="NewApi">@color/primaryColorRed</item>
     </style>
 
     <style name="AppTheme.PINK" parent="AppTheme">
@@ -36,6 +37,7 @@
         <item name="colorPrimary">@color/primaryColorPink</item>
         <item name="colorPrimaryDark">@color/primaryDarkColorPink</item>
         <item name="colorAccent">@color/secondaryColorPink</item>
+        <item name="android:navigationBarColor" tools:ignore="NewApi">@color/primaryColorPink</item>
     </style>
 
     <style name="AppTheme.PURPLE" parent="AppTheme">
@@ -43,6 +45,7 @@
         <item name="colorPrimary">@color/primaryColorPurple</item>
         <item name="colorPrimaryDark">@color/primaryDarkColorPurple</item>
         <item name="colorAccent">@color/secondaryColorPurple</item>
+        <item name="android:navigationBarColor" tools:ignore="NewApi">@color/primaryColorPurple</item>
     </style>
 
     <style name="AppTheme.DEEPPURPLE" parent="AppTheme">
@@ -50,6 +53,7 @@
         <item name="colorPrimary">@color/primaryColorDeepPurple</item>
         <item name="colorPrimaryDark">@color/primaryDarkColorDeepPurple</item>
         <item name="colorAccent">@color/secondaryColorDeepPurple</item>
+        <item name="android:navigationBarColor" tools:ignore="NewApi">@color/primaryColorDeepPurple</item>
     </style>
 
     <style name="AppTheme.INDIGO" parent="AppTheme">
@@ -57,6 +61,7 @@
         <item name="colorPrimary">@color/primaryColorIndigo</item>
         <item name="colorPrimaryDark">@color/primaryDarkColorIndigo</item>
         <item name="colorAccent">@color/secondaryColorIndigo</item>
+        <item name="android:navigationBarColor" tools:ignore="NewApi">@color/primaryColorIndigo</item>
     </style>
 
     <style name="AppTheme.BLUE" parent="AppTheme">
@@ -64,6 +69,7 @@
         <item name="colorPrimary">@color/primaryColorBlue</item>
         <item name="colorPrimaryDark">@color/primaryDarkColorBlue</item>
         <item name="colorAccent">@color/secondaryColorBlue</item>
+        <item name="android:navigationBarColor" tools:ignore="NewApi">@color/primaryColorBlue</item>
     </style>
 
     <style name="AppTheme.LIGHTBLUE" parent="AppTheme">
@@ -71,6 +77,7 @@
         <item name="colorPrimary">@color/primaryColorLightBlue</item>
         <item name="colorPrimaryDark">@color/primaryDarkColorLightBlue</item>
         <item name="colorAccent">@color/secondaryColorLightBlue</item>
+        <item name="android:navigationBarColor" tools:ignore="NewApi">@color/primaryColorLightBlue</item>
     </style>
 
     <style name="AppTheme.CYAN" parent="AppTheme">
@@ -78,6 +85,7 @@
         <item name="colorPrimary">@color/primaryColorCyan</item>
         <item name="colorPrimaryDark">@color/primaryDarkColorCyan</item>
         <item name="colorAccent">@color/secondaryColorCyan</item>
+        <item name="android:navigationBarColor" tools:ignore="NewApi">@color/primaryColorCyan</item>
     </style>
 
     <style name="AppTheme.TEAL" parent="AppTheme">
@@ -85,6 +93,7 @@
         <item name="colorPrimary">@color/primaryColorTeal</item>
         <item name="colorPrimaryDark">@color/primaryDarkColorTeal</item>
         <item name="colorAccent">@color/secondaryColorTeal</item>
+        <item name="android:navigationBarColor" tools:ignore="NewApi">@color/primaryColorTeal</item>
     </style>
 
     <style name="AppTheme.GREEN" parent="AppTheme">
@@ -92,6 +101,7 @@
         <item name="colorPrimary">@color/primaryColorGreen</item>
         <item name="colorPrimaryDark">@color/primaryDarkColorGreen</item>
         <item name="colorAccent">@color/secondaryColorGreen</item>
+        <item name="android:navigationBarColor" tools:ignore="NewApi">@color/primaryColorGreen</item>
     </style>
 
     <style name="AppTheme.LIGHTGREEN" parent="AppTheme">
@@ -99,6 +109,7 @@
         <item name="colorPrimary">@color/primaryColorLightGreen</item>
         <item name="colorPrimaryDark">@color/primaryDarkColorLightGreen</item>
         <item name="colorAccent">@color/secondaryColorLightGreen</item>
+        <item name="android:navigationBarColor" tools:ignore="NewApi">@color/primaryColorLightGreen</item>
     </style>
 
     <style name="AppTheme.LIME" parent="AppTheme">
@@ -106,6 +117,7 @@
         <item name="colorPrimary">@color/primaryColorLime</item>
         <item name="colorPrimaryDark">@color/primaryDarkColorLime</item>
         <item name="colorAccent">@color/secondaryColorLime</item>
+        <item name="android:navigationBarColor" tools:ignore="NewApi">@color/primaryColorLime</item>
     </style>
 
     <style name="AppTheme.YELLOW" parent="AppTheme">
@@ -113,6 +125,7 @@
         <item name="colorPrimary">@color/primaryColorYellow</item>
         <item name="colorPrimaryDark">@color/primaryDarkColorYellow</item>
         <item name="colorAccent">@color/secondaryColorYellow</item>
+        <item name="android:navigationBarColor" tools:ignore="NewApi">@color/primaryColorYellow</item>
     </style>
 
     <style name="AppTheme.AMBER" parent="AppTheme">
@@ -120,6 +133,7 @@
         <item name="colorPrimary">@color/primaryColorAmber</item>
         <item name="colorPrimaryDark">@color/primaryDarkColorAmber</item>
         <item name="colorAccent">@color/secondaryColorAmber</item>
+        <item name="android:navigationBarColor" tools:ignore="NewApi">@color/primaryColorAmber</item>
     </style>
 
     <style name="AppTheme.ORANGE" parent="AppTheme">
@@ -127,6 +141,7 @@
         <item name="colorPrimary">@color/primaryColorOrange</item>
         <item name="colorPrimaryDark">@color/primaryDarkColorOrange</item>
         <item name="colorAccent">@color/secondaryColorOrange</item>
+        <item name="android:navigationBarColor" tools:ignore="NewApi">@color/primaryColorOrange</item>
     </style>
 
     <style name="AppTheme.DEEPORANGE" parent="AppTheme">
@@ -134,6 +149,7 @@
         <item name="colorPrimary">@color/primaryColorDeepOrange</item>
         <item name="colorPrimaryDark">@color/primaryDarkColorDeepOrange</item>
         <item name="colorAccent">@color/secondaryColorDeepOrange</item>
+        <item name="android:navigationBarColor" tools:ignore="NewApi">@color/primaryColorDeepOrange</item>
     </style>
 
     <style name="AppTheme.BROWN" parent="AppTheme">
@@ -141,6 +157,7 @@
         <item name="colorPrimary">@color/primaryColorBrown</item>
         <item name="colorPrimaryDark">@color/primaryDarkColorBrown</item>
         <item name="colorAccent">@color/secondaryColorBrown</item>
+        <item name="android:navigationBarColor" tools:ignore="NewApi">@color/primaryColorBrown</item>
     </style>
 
     <style name="AppTheme.GRAY" parent="AppTheme">
@@ -148,6 +165,7 @@
         <item name="colorPrimary">@color/primaryColorGray</item>
         <item name="colorPrimaryDark">@color/primaryDarkColorGray</item>
         <item name="colorAccent">@color/secondaryColorGray</item>
+        <item name="android:navigationBarColor" tools:ignore="NewApi">@color/primaryColorGray</item>
     </style>
 
     <style name="AppTheme.BLUEGRAY" parent="AppTheme">
@@ -155,6 +173,7 @@
         <item name="colorPrimary">@color/primaryColorBlueGray</item>
         <item name="colorPrimaryDark">@color/primaryDarkColorBlueGray</item>
         <item name="colorAccent">@color/secondaryColorBlueGray</item>
+        <item name="android:navigationBarColor" tools:ignore="NewApi">@color/primaryColorBlueGray</item>
     </style>
 
 
