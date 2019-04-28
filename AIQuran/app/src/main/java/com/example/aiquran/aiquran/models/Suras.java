@@ -7,8 +7,11 @@ public class Suras implements Serializable {
     private String originalWords;
     private  String translationWords;
     private boolean isDownloadSelected;
+    private String idOriginalWords;
 
-
+    public String getIdOriginalWords() {
+        return id + " - " + originalWords;
+    }
 
     public Suras(String id, String originalWords, String translationWords) {
         this.id = id;
