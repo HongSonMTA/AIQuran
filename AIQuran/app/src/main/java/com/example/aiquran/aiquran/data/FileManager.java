@@ -70,7 +70,15 @@ public class FileManager {
 
         if (isExternalStorageReadable()) {
             try {
+                File root = Environment.getExternalStorageDirectory();
+
+                File dir = new File(root.getAbsolutePath() + "/aiquran");
+                if (dir.exists()) {
+                   Log.i("dir.Exists",dir.getPath());
+                }
+
                 FileInputStream fileInputStream = new FileInputStream(new File(path));
+
                 InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
                 StringBuilder stringBuilder = new StringBuilder();
@@ -90,8 +98,8 @@ public class FileManager {
         } else {
             Toast.makeText(mContext, "isExternalStorageReadable : false", Toast.LENGTH_LONG).show();
         }
-        if (line == null)
-            line = "null";
+//        if (line == null)
+//            line = "null";
         return line;
     }
 
