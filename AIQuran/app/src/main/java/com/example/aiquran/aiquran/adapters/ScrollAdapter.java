@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.aiquran.aiquran.R;
+import com.example.aiquran.aiquran.data.FileManager;
 import com.example.aiquran.aiquran.databinding.ItemPageBinding;
 import com.example.aiquran.aiquran.models.Book;
 import com.example.aiquran.aiquran.models.ContentBook;
@@ -31,6 +32,8 @@ public class ScrollAdapter extends RecyclerView.Adapter<ScrollAdapter.ViewHoder>
     private ItemPageBinding binding;
     private LayoutInflater inflater;
     private ItemViewActionCallBack callBack;
+    private FileManager fileManager;
+    private ArrayList<String> specialWords;
 
     public ScrollAdapter(Context context, Book book) {
         this.book = book;
@@ -66,16 +69,16 @@ public class ScrollAdapter extends RecyclerView.Adapter<ScrollAdapter.ViewHoder>
         }
         public void binData(Book book1,int page){
 
-            ArrayList<String> keyWords = new ArrayList<>();
-            keyWords.add("Most Gracious");
-            keyWords.add("Thou hast bestowed Thy Grace");
-            keyWords.add("the Cherisher and Sustainer");
-            keyWords.add("Make not mischief on the earth,");
-            keyWords.add("from their Lord");
-            binding.txtContentOne.setText(initSpan(book1.getPagesString().get(page),keyWords));
+            getSpecialWords();
+            binding.txtContentOne.setText(initSpan(book1.getPagesString().get(page),specialWords));
             binding.txtContentOne.setMovementMethod(LinkMovementMethod.getInstance());
 
         }
+    }
+
+    private void getSpecialWords() {
+        fileManager = new FileManager(inflater.getContext());
+        specialWords = fileManager.getAllSpecialWord();
     }
     public interface ItemViewActionCallBack {
         void onClick(int position,View view);

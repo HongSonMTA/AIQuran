@@ -18,6 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.aiquran.aiquran.R;
+import com.example.aiquran.aiquran.data.FileManager;
 import com.example.aiquran.aiquran.models.Book;
 
 import java.util.ArrayList;
@@ -28,6 +29,9 @@ public class SlidePagerAdapter extends PagerAdapter {
     private LayoutInflater inflater;
     private Book book;
     private ItemViewCallBack callBack;
+    private ArrayList<String> specialWords;
+    private FileManager fileManager;
+
 
     public void setCallBack(ItemViewCallBack callBack) {
         this.callBack = callBack;
@@ -55,17 +59,17 @@ public class SlidePagerAdapter extends PagerAdapter {
         View view = inflater.inflate(R.layout.item_page, container, false);
         TextView txtContentOne = view.findViewById(R.id.txt_contentOne);
 
-        ArrayList<String> keyWords = new ArrayList<>();
-        keyWords.add("Most Gracious");
-        keyWords.add("Thou hast bestowed Thy Grace");
-        keyWords.add("the Cherisher and Sustainer");
-        keyWords.add("Make not mischief on the earth,");
-        keyWords.add("from their Lord");
-        txtContentOne.setText(initSpan(book.getPagesString().get(position),keyWords));
+        getSpecialWords();
+        txtContentOne.setText(initSpan(book.getPagesString().get(position), specialWords));
         txtContentOne.setMovementMethod(LinkMovementMethod.getInstance());
 
         container.addView(view);
         return view;
+    }
+
+    private void getSpecialWords() {
+        fileManager = new FileManager(context);
+        specialWords = fileManager.getAllSpecialWord();
     }
 
     @Override
@@ -97,7 +101,7 @@ public class SlidePagerAdapter extends PagerAdapter {
                         int start = s.getSpanStart(this);
                         int end = s.getSpanEnd(this);
 
-                        String str = s.toString().substring(start,end);
+                        String str = s.toString().substring(start, end);
                         onClickText(str);
                     }
 
@@ -114,6 +118,7 @@ public class SlidePagerAdapter extends PagerAdapter {
         }
         return ss;
     }
+
     private void onClickText(String str) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
 

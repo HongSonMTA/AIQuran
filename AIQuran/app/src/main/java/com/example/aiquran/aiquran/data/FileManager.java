@@ -59,8 +59,34 @@ public class FileManager {
         return pages;
     }
 
-    public ArrayList<String> getKeyWordsPage(int page, int idBook) {
+    public ArrayList<String> getAllSpecialWord() {
         ArrayList<String> keyWords = new ArrayList<>();
+
+
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("special_words/all_special_words.txt");
+        String fileName = stringBuilder.toString();
+        BufferedReader reader;
+
+        try {
+            final InputStream file = mContext.getAssets().open(fileName);
+            reader = new BufferedReader(new InputStreamReader(file));
+            String line = reader.readLine();
+            keyWords.add(line);
+            while (line != null) {
+                line = reader.readLine();
+
+                if (line != null) {
+                    line = line.trim();
+                    keyWords.add(line);
+                }
+
+                Log.d("Special word : ", "" + line);
+
+            }
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
         return keyWords;
     }
 
